@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP MM8108-MF15457
+D RF System on a Chip - SoC MM8108, Wi-Fi HaLow Reference Module. 26dBm. FCC, IC, CE and Telec certified
+K
+F https://www.morsemicro.com/resources/datasheets/modules/MM8108-MF15457_Data_Sheet.pdf
+$ENDCMP
+#
+#End Doc Library

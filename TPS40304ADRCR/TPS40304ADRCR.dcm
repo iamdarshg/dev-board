@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP TPS40304ADRCR
+D Switching Controllers 3V-20V Wide Inp Sync Buck Controller
+K
+F https://www.ti.com/lit/ds/symlink/tps40304a.pdf?ts=1612515858012&ref_url=https%253A%252F%252Fwww.ti.com%252Fstore%252Fti%252Fen%252Fp%252Fproduct%252F%253Fp%253DTPS40304ADRCR%2526keyMatch%253DTPS40304ADRCR%2526tisearch%253DSearch-EN-everything
+$ENDCMP
+#
+#End Doc Library

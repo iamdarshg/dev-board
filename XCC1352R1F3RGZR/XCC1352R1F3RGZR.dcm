@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP XCC1352R1F3RGZR
+D SimpleLink Multi-Band CC1352R Wireless MCU
+K
+F http://www.ti.com/lit/gpn/cc1352r
+$ENDCMP
+#
+#End Doc Library

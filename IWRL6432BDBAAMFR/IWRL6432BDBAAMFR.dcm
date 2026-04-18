@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP IWRL6432BDBAAMFR
+D RF System on a Chip - SoC Single-chip low-power 57-GHz to 64-GHz industrial mmWave radar sensor 102-FCCSP -40 to 105
+K
+F https://www.ti.com/lit/ds/symlink/iwrl6432.pdf
+$ENDCMP
+#
+#End Doc Library

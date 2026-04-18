@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP MMC5633NJL
+D Board Mount Hall Effect / Magnetic Sensors 30 Gauss, Monolithic , High Performance,
+K
+F https://media.digikey.com/pdf/Data%20Sheets/MEMSIC%20PDFs/MMC5633NJL_RevA_3-12-20.pdf
+$ENDCMP
+#
+#End Doc Library
