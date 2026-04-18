@@ -435,7 +435,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "RP2350_80QFN_minimal.kicad_pro",
+    "filename": "dev_board.kicad_pro",
     "version": 3
   },
   "net_settings": {
