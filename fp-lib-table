@@ -11,4 +11,5 @@
   (lib (name "THS8136IPHPR")(type "KiCad")(uri "${KIPRJMOD}/THS8136IPHPR")(options "")(descr ""))
   (lib (name "TPS40304ADRCR")(type "KiCad")(uri "${KIPRJMOD}/TPS40304ADRCR")(options "")(descr ""))
   (lib (name "XCC1352R1F3RGZR")(type "KiCad")(uri "${KIPRJMOD}/XCC1352R1F3RGZR")(options "")(descr ""))
+  (lib (name "MCP6D11T")(type "KiCad")(uri "${KIPRJMOD}/MCP6D11T/MCP6D11T.pretty")(options "")(descr "Microchip MCP6D11T local footprint"))
 )

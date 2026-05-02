@@ -11,4 +11,5 @@
   (lib (name "THS8136IPHPR")(type "KiCad")(uri "${KIPRJMOD}/THS8136IPHPR/THS8136IPHPR.kicad_sym")(options "")(descr ""))
   (lib (name "TPS40304ADRCR")(type "KiCad")(uri "${KIPRJMOD}/TPS40304ADRCR/TPS40304ADRCR.kicad_sym")(options "")(descr ""))
   (lib (name "XCC1352R1F3RGZR")(type "KiCad")(uri "${KIPRJMOD}/XCC1352R1F3RGZR/XCC1352R1F3RGZR.kicad_sym")(options "")(descr ""))
+  (lib (name "MCP6D11T")(type "KiCad")(uri "${KIPRJMOD}/MCP6D11T/MCP6D11T.kicad_sym")(options "")(descr "Microchip MCP6D11T local symbol"))
 )
