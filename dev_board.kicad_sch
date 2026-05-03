@@ -144,7 +144,7 @@
 						(type background)
 					)
 				)
-				(pin passive line
+				(pin input clock
 					(at 0 0 0)
 					(length 5.08)
 					(name "CLK+"
@@ -162,7 +162,7 @@
 						)
 					)
 				)
-				(pin passive line
+				(pin input clock
 					(at 0 -2.54 0)
 					(length 5.08)
 					(name "CLK-"
@@ -180,7 +180,7 @@
 						)
 					)
 				)
-				(pin passive line
+				(pin power_in line
 					(at 0 -5.08 0)
 					(length 5.08)
 					(name "AVDD_2"
@@ -198,7 +198,7 @@
 						)
 					)
 				)
-				(pin passive line
+				(pin input line
 					(at 0 -7.62 0)
 					(length 5.08)
 					(name "CSB"
@@ -216,7 +216,7 @@
 						)
 					)
 				)
-				(pin passive line
+				(pin input line
 					(at 0 -10.16 0)
 					(length 5.08)
 					(name "SCLK/DFS"
@@ -234,7 +234,7 @@
 						)
 					)
 				)
-				(pin passive line
+				(pin bidirectional line
 					(at 0 -12.7 0)
 					(length 5.08)
 					(name "SDIO/PDWN"
@@ -324,7 +324,7 @@
 						)
 					)
 				)
-				(pin passive line
+				(pin power_in line
 					(at 12.7 17.78 270)
 					(length 5.08)
 					(name "AVDD"
@@ -378,7 +378,7 @@
 						)
 					)
 				)
-				(pin passive line
+				(pin output line
 					(at 15.24 -38.1 90)
 					(length 5.08)
 					(name "(LSB)D0"
@@ -414,7 +414,7 @@
 						)
 					)
 				)
-				(pin passive line
+				(pin output line
 					(at 17.78 -38.1 90)
 					(length 5.08)
 					(name "D1"
@@ -432,7 +432,7 @@
 						)
 					)
 				)
-				(pin passive line
+				(pin power_in line
 					(at 20.32 17.78 270)
 					(length 5.08)
 					(name "AVDD_3"
@@ -450,7 +450,7 @@
 						)
 					)
 				)
-				(pin passive line
+				(pin power_in line
 					(at 20.32 -38.1 90)
 					(length 5.08)
 					(name "DRVD0"
@@ -468,7 +468,7 @@
 						)
 					)
 				)
-				(pin passive line
+				(pin input line
 					(at 22.86 17.78 270)
 					(length 5.08)
 					(name "RBIAS"
@@ -486,7 +486,7 @@
 						)
 					)
 				)
-				(pin passive line
+				(pin output line
 					(at 22.86 -38.1 90)
 					(length 5.08)
 					(name "D2"
@@ -504,7 +504,7 @@
 						)
 					)
 				)
-				(pin passive line
+				(pin output line
 					(at 25.4 17.78 270)
 					(length 5.08)
 					(name "VCM"
@@ -522,7 +522,7 @@
 						)
 					)
 				)
-				(pin passive line
+				(pin output line
 					(at 25.4 -38.1 90)
 					(length 5.08)
 					(name "D3"
@@ -540,7 +540,7 @@
 						)
 					)
 				)
-				(pin passive line
+				(pin input line
 					(at 27.94 17.78 270)
 					(length 5.08)
 					(name "SENSE"
@@ -558,7 +558,7 @@
 						)
 					)
 				)
-				(pin passive line
+				(pin output line
 					(at 27.94 -38.1 90)
 					(length 5.08)
 					(name "D4"
@@ -576,7 +576,7 @@
 						)
 					)
 				)
-				(pin passive line
+				(pin input line
 					(at 30.48 17.78 270)
 					(length 5.08)
 					(name "VREF"
@@ -594,7 +594,7 @@
 						)
 					)
 				)
-				(pin passive line
+				(pin power_in line
 					(at 40.64 0 180)
 					(length 5.08)
 					(name "AVDD_4"
@@ -612,7 +612,7 @@
 						)
 					)
 				)
-				(pin passive line
+				(pin input line
 					(at 40.64 -2.54 180)
 					(length 5.08)
 					(name "MODE/OR"
@@ -630,7 +630,7 @@
 						)
 					)
 				)
-				(pin passive line
+				(pin output line
 					(at 40.64 -5.08 180)
 					(length 5.08)
 					(name "DCO"
@@ -648,7 +648,7 @@
 						)
 					)
 				)
-				(pin passive line
+				(pin output line
 					(at 40.64 -7.62 180)
 					(length 5.08)
 					(name "D9(MSB)"
@@ -666,7 +666,7 @@
 						)
 					)
 				)
-				(pin passive line
+				(pin output line
 					(at 40.64 -10.16 180)
 					(length 5.08)
 					(name "D8"
@@ -684,7 +684,7 @@
 						)
 					)
 				)
-				(pin passive line
+				(pin output line
 					(at 40.64 -12.7 180)
 					(length 5.08)
 					(name "D7"
@@ -702,7 +702,7 @@
 						)
 					)
 				)
-				(pin passive line
+				(pin output line
 					(at 40.64 -15.24 180)
 					(length 5.08)
 					(name "D6"
@@ -720,7 +720,7 @@
 						)
 					)
 				)
-				(pin passive line
+				(pin output line
 					(at 40.64 -17.78 180)
 					(length 5.08)
 					(name "D5"
@@ -4464,7 +4464,7 @@
 						(type background)
 					)
 				)
-				(pin passive line
+				(pin bidirectional line
 					(at 0 0 0)
 					(length 5.08)
 					(name "MOSI_/_SDA"
@@ -4482,7 +4482,7 @@
 						)
 					)
 				)
-				(pin passive line
+				(pin input clock
 					(at 0 -2.54 0)
 					(length 5.08)
 					(name "SCLK_/_SCL"
@@ -4500,7 +4500,7 @@
 						)
 					)
 				)
-				(pin passive line
+				(pin input line
 					(at 0 -5.08 0)
 					(length 5.08)
 					(name "MISO_/_ADDR"
@@ -4518,7 +4518,7 @@
 						)
 					)
 				)
-				(pin passive line
+				(pin power_in line
 					(at 0 -7.62 0)
 					(length 5.08)
 					(name "VDD"
@@ -4536,7 +4536,7 @@
 						)
 					)
 				)
-				(pin passive line
+				(pin power_in line
 					(at 0 -10.16 0)
 					(length 5.08)
 					(name "VDDIO"
@@ -4554,7 +4554,7 @@
 						)
 					)
 				)
-				(pin passive line
+				(pin output line
 					(at 38.1 0 180)
 					(length 5.08)
 					(name "INTN"
@@ -4572,7 +4572,7 @@
 						)
 					)
 				)
-				(pin passive line
+				(pin input line
 					(at 38.1 -2.54 180)
 					(length 5.08)
 					(name "CSN"
@@ -4590,7 +4590,7 @@
 						)
 					)
 				)
-				(pin passive line
+				(pin power_in line
 					(at 38.1 -5.08 180)
 					(length 5.08)
 					(name "VSS_1"
@@ -4608,7 +4608,7 @@
 						)
 					)
 				)
-				(pin passive line
+				(pin power_in line
 					(at 38.1 -7.62 180)
 					(length 5.08)
 					(name "VSS_2"
@@ -4762,7 +4762,7 @@
 						(type background)
 					)
 				)
-				(pin passive line
+				(pin bidirectional line
 					(at 0 0 0)
 					(length 5.08)
 					(name "AP_SDO_/_AP_AD0"
@@ -4816,7 +4816,7 @@
 						)
 					)
 				)
-				(pin passive line
+				(pin output line
 					(at 0 -7.62 0)
 					(length 5.08)
 					(name "INT1_/_INT"
@@ -4834,7 +4834,7 @@
 						)
 					)
 				)
-				(pin passive line
+				(pin bidirectional line
 					(at 20.32 43.18 270)
 					(length 5.08)
 					(name "AP_SDA_/_AP_SDIO_/_AP_SDI"
@@ -4852,7 +4852,7 @@
 						)
 					)
 				)
-				(pin passive line
+				(pin power_in line
 					(at 20.32 -25.4 90)
 					(length 5.08)
 					(name "VDDIO"
@@ -4870,7 +4870,7 @@
 						)
 					)
 				)
-				(pin passive line
+				(pin input clock
 					(at 22.86 43.18 270)
 					(length 5.08)
 					(name "AP_SCL_/_AP_SCLK"
@@ -4888,7 +4888,7 @@
 						)
 					)
 				)
-				(pin passive line
+				(pin power_in line
 					(at 22.86 -25.4 90)
 					(length 5.08)
 					(name "GND"
@@ -4906,7 +4906,7 @@
 						)
 					)
 				)
-				(pin passive line
+				(pin input line
 					(at 25.4 43.18 270)
 					(length 5.08)
 					(name "AP_CS"
@@ -4924,7 +4924,7 @@
 						)
 					)
 				)
-				(pin passive line
+				(pin input line
 					(at 25.4 -25.4 90)
 					(length 5.08)
 					(name "FSYNC"
@@ -4978,7 +4978,7 @@
 						)
 					)
 				)
-				(pin passive line
+				(pin output line
 					(at 45.72 -5.08 180)
 					(length 5.08)
 					(name "INT2"
@@ -4996,7 +4996,7 @@
 						)
 					)
 				)
-				(pin passive line
+				(pin power_in line
 					(at 45.72 -7.62 180)
 					(length 5.08)
 					(name "VDD"
@@ -16987,7 +16987,7 @@
 		)
 		(uuid "b6a9e3d9-e673-481d-9f80-9998667095a6")
 	)
-	(text "I2C sensor bus: ENS161, ICM-42670-P, and LPS22HH share SENS_I2C_SCL/SDA with 4.7k pullups."
+	(text "I2C sensor bus: ENS161, ICM-42670-P, and LPS22HH share SENS_I2C_SCL/SDA with one pullup pair; strap ENS_ADDR, IMU_AD0, and LPS_SA0 intentionally."
 		(exclude_from_sim no)
 		(at 518.16 212.09 0)
 		(effects
