@@ -46141,6 +46141,80 @@
 	)
 	(symbol
 		(lib_id "power:GND")
+		(at 763.27 565.15 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "6fc5c34d-7708-4434-94ca-319a1f0e9873")
+		(property "Reference" "#PWR999"
+			(at 763.27 571.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 763.397 569.5442 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 763.27 565.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 763.27 565.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 763.27 565.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "9f82d888-2a3f-4aaf-922d-00df31eb9a5a")
+		)
+		(instances
+			(project ""
+				(path "/94683f5c-9cd9-448e-be96-9792537b5cb8"
+					(reference "#PWR999")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 758.19 565.15) (xy 763.27 565.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "19a9dbae-14a3-4b8a-922b-3abafa07ee36")
+	)
+	(symbol
+		(lib_id "power:GND")
 		(at 143.51 73.66 0)
 		(unit 1)
 		(exclude_from_sim no)
