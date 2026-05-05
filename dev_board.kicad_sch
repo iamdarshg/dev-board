@@ -16602,7 +16602,7 @@
 		)
 		(uuid "098f59e7-ed90-45cf-b393-f1b2bd3e7d3c")
 	)
-	(text "USB programming ports: J12 RP2350 native USB; J13 STM32 DFU optional via R52/R53; J14 CC1352 programmer bridge USB input; J15 IWRL USB-UART at 1.8V I/O."
+	(text "USB programming ports: J12 RP2350 native USB; J13 STM32 DFU optional via R52/R53; J14 CC1352 programmer bridge USB input, DNP in this revision; J15 IWRL USB-UART at 1.8V I/O."
 		(exclude_from_sim no)
 		(at 797.56 76.454 0)
 		(effects
@@ -16987,7 +16987,7 @@
 		)
 		(uuid "b6a9e3d9-e673-481d-9f80-9998667095a6")
 	)
-	(text "I2C sensor bus: ENS161, ICM-42670-P, and LPS22HH share SENS_I2C_SCL/SDA with one pullup pair; strap ENS_ADDR, IMU_AD0, and LPS_SA0 intentionally."
+	(text "I2C sensor bus: ENS161, ICM-42670-P, and LPS22HH share SENS_I2C_SCL/SDA with one pullup pair; strap ENS_ADDR, IMU_AD0, and LPS_SA0 intentionally; IC2 INTN -> GPIO27 and IC3 INT2 -> GPIO28."
 		(exclude_from_sim no)
 		(at 518.16 212.09 0)
 		(effects
@@ -17042,7 +17042,7 @@
 		)
 		(uuid "d9a2fd8d-4294-4b5d-b811-aa2635bceec1")
 	)
-	(text "CC1352 has no native USB device port; J14 is the USB side of an XDS110/cJTAG bridge to CC_TMSC, CC_TCKC, and CC_RESET_N."
+	(text "CC1352 has no native USB device port; J14 is the USB side of an XDS110/cJTAG bridge to CC_TMSC, CC_TCKC, and CC_RESET_N, but is DNP in this revision."
 		(exclude_from_sim no)
 		(at 792.22 177.54 0)
 		(effects
@@ -18892,6 +18892,16 @@
 			(type default)
 		)
 		(uuid "18fcd5c8-7ce9-42d9-973f-b982bc35250f")
+	)
+	(wire
+		(pts
+			(xy 758.19 565.15) (xy 763.27 565.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "19a9dbae-14a3-4b8a-922b-3abafa07ee36")
 	)
 	(wire
 		(pts
@@ -32363,7 +32373,7 @@
 		)
 		(uuid "4492dbce-a971-4139-ae97-6d3683b8ea81")
 	)
-	(label "SWCLK"
+	(label "RP_SWCLK"
 		(at 325.12 154.94 0)
 		(effects
 			(font
@@ -32983,7 +32993,7 @@
 		)
 		(uuid "50debeeb-8567-4f36-8d52-b444adcce4af")
 	)
-	(label "SWD"
+	(label "RP_SWDIO"
 		(at 318.77 189.23 0)
 		(effects
 			(font
@@ -33313,7 +33323,7 @@
 		)
 		(uuid "5a32db4d-5714-4e28-bc98-28b373ed7e36")
 	)
-	(label "SWCLK"
+	(label "VREG_LX"
 		(at 152.4 176.53 0)
 		(effects
 			(font
@@ -34523,7 +34533,7 @@
 		)
 		(uuid "799bad7d-6b23-46b9-89b4-f84db181382f")
 	)
-	(label "SWD"
+	(label "RP_SWDIO"
 		(at 325.12 152.4 0)
 		(effects
 			(font
@@ -35642,6 +35652,26 @@
 			(justify left bottom)
 		)
 		(uuid "942da4cf-79d0-4eb8-b68f-da8d1538ac95")
+	)
+	(label "RP_SWCLK"
+		(at 134.62 113.03 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "b7fb8f41-9f7f-4a6c-a99d-57a3e7dd1f6d")
+	)
+	(label "RP_SWDIO"
+		(at 142.24 110.49 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "1f4ef824-0d5f-4b0f-9d0f-d5a7f0f9dc0b")
 	)
 	(label "GND"
 		(at 810.26 389.89 0)
@@ -37313,7 +37343,7 @@
 		)
 		(uuid "bf92b7fc-5e34-4cfc-9bce-11d64bff615a")
 	)
-	(label "SWCLK"
+	(label "RP_SWCLK"
 		(at 318.77 184.15 0)
 		(effects
 			(font
@@ -38863,7 +38893,7 @@
 		)
 		(uuid "eb283c1b-3d98-4b85-9c7f-a07050cf87e1")
 	)
-	(label "SWD"
+	(label "VREG_FB"
 		(at 152.4 179.07 0)
 		(effects
 			(font
@@ -39680,7 +39710,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "00000000-0000-0000-0000-00005ed96b87")
 		(property "Reference" "C3"
 			(at 366.9284 187.071 0)
@@ -46141,80 +46171,6 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 763.27 565.15 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "6fc5c34d-7708-4434-94ca-319a1f0e9873")
-		(property "Reference" "#PWR999"
-			(at 763.27 571.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 763.397 569.5442 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 763.27 565.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 763.27 565.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 763.27 565.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "9f82d888-2a3f-4aaf-922d-00df31eb9a5a")
-		)
-		(instances
-			(project ""
-				(path "/94683f5c-9cd9-448e-be96-9792537b5cb8"
-					(reference "#PWR999")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(wire
-		(pts
-			(xy 758.19 565.15) (xy 763.27 565.15)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "19a9dbae-14a3-4b8a-922b-3abafa07ee36")
-	)
-	(symbol
-		(lib_id "power:GND")
 		(at 143.51 73.66 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -46492,7 +46448,7 @@
 				)
 			)
 		)
-		(property "Value" "CC1352 PROG BRIDGE USB"
+		(property "Value" "DNP / not used"
 			(at 801.37 149.86 0)
 			(effects
 				(font
@@ -47374,6 +47330,70 @@
 			(project ""
 				(path "/94683f5c-9cd9-448e-be96-9792537b5cb8"
 					(reference "C22")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 763.27 565.15 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp yes)
+		(uuid "6fc5c34d-7708-4434-94ca-319a1f0e9873")
+		(property "Reference" "#PWR999"
+			(at 763.27 571.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 763.397 569.5442 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 763.27 565.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 763.27 565.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 763.27 565.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "9f82d888-2a3f-4aaf-922d-00df31eb9a5a")
+		)
+		(instances
+			(project ""
+				(path "/94683f5c-9cd9-448e-be96-9792537b5cb8"
+					(reference "#PWR999")
 					(unit 1)
 				)
 			)
@@ -49079,7 +49099,7 @@
 				)
 			)
 		)
-		(property "Value" "STM32 USB DFU ALT"
+		(property "Value" "DNP / not used"
 			(at 807.72 119.38 0)
 			(effects
 				(font
@@ -55647,6 +55667,146 @@
 				)
 			)
 		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 690 565.15 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "c95e3d1e-2c61-4d1d-a0f4-44e8d5f8a106")
+		(property "Reference" "C95"
+			(at 691.27 563.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "47n"
+			(at 691.27 566.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+			(at 690 568.96 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 690 568.96 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "IWRL6432 VBGAP decoupling capacitor"
+			(at 690 565.15 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "3dbca4a9-6c1c-4ef9-8dd5-9b4f5c7ab1c1")
+		)
+		(pin "2"
+			(uuid "70c7a20b-8b8d-4c64-a8a0-0f71e26e3cf3")
+		)
+		(instances
+			(project ""
+				(path "/94683f5c-9cd9-448e-be96-9792537b5cb8"
+					(reference "C95")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 414.02 406.4) (xy 421.64 406.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9c2c77d1-2c61-4dc4-a0f4-44e8d5f8a101")
+	)
+	(label "+3V3"
+		(at 421.64 406.4 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "c95e3d1e-2c61-4d1d-a0f4-44e8d5f8a102")
+	)
+	(wire
+		(pts
+			(xy 758.19 565.15) (xy 758.19 560.07)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9c2c77d1-2c61-4dc4-a0f4-44e8d5f8a103")
+	)
+	(label "GND"
+		(at 758.19 560.07 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "c95e3d1e-2c61-4d1d-a0f4-44e8d5f8a104")
+	)
+	(wire
+		(pts
+			(xy 707.39 572.77) (xy 690 572.77)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9c2c77d1-2c61-4dc4-a0f4-44e8d5f8a105")
+	)
+	(wire
+		(pts
+			(xy 690 565.15) (xy 690 560.07)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9c2c77d1-2c61-4dc4-a0f4-44e8d5f8a106")
+	)
+	(label "GND"
+		(at 690 560.07 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "c95e3d1e-2c61-4d1d-a0f4-44e8d5f8a107")
+	)
+	(no_connect
+		(at 707.39 631.19)
+		(uuid "c95e3d1e-2c61-4d1d-a0f4-44e8d5f8a108")
 	)
 	(sheet_instances
 		(path "/"
