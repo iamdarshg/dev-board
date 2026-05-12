@@ -12,4 +12,6 @@
   (lib (name "TPS40304ADRCR")(type "KiCad")(uri "${KIPRJMOD}/TPS40304ADRCR/TPS40304ADRCR.kicad_sym")(options "")(descr ""))
   (lib (name "XCC1352R1F3RGZR")(type "KiCad")(uri "${KIPRJMOD}/XCC1352R1F3RGZR/XCC1352R1F3RGZR.kicad_sym")(options "")(descr ""))
   (lib (name "MCP6D11T")(type "KiCad")(uri "${KIPRJMOD}/MCP6D11T/MCP6D11T.kicad_sym")(options "")(descr "Microchip MCP6D11T local symbol"))
+  (lib (name "0900PC15A0036")(type "KiCad")(uri "${KIPRJMOD}/0900PC15A0036/0900PC15A0036.kicad_sym")(options "")(descr "Johanson CC1352 balun/filter symbol"))
+  (lib (name "XMSSJJ3G0PA-054")(type "KiCad")(uri "${KIPRJMOD}/XMSSJJ3G0PA-054/XMSSJJ3G0PA-054.kicad_sym")(options "")(descr "Murata RF switch symbol"))
 )
