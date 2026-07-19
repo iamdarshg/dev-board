@@ -67,7 +67,7 @@
 "J21","HR911105A MAGJACK","Connector_RJ:RJ45_Hanrun_HR911105A","1",""
 "J22","Conn_02x10_Counter_Clockwise","Connector_PinHeader_2.54mm:PinHeader_2x10_P2.54mm_Vertical","1",""
 "J23","Conn_02x04_Odd_Even","Connector_PinHeader_2.54mm:PinHeader_2x04_P2.54mm_Vertical","1",""
-"L1","1uH, Isat > 15A","Inductor_SMD:L_TODO_SELECT_1uH_15Aplus","1",""
+"L1","1uH LMLP07C7M1R0DTAS, Idc 15A / Isat 20A","Inductor_SMD:L_Kyocera_LMLP07C7_7.0x6.9mm","1",""
 "L2","3.3uH Abracon AOTA-B201610S3R3-101-T","RP2350B_minimal_hier:L_Abracon_AOTA-B201610S_2.0x1.6mm","1",""
 "NT1","AGND_to_PGND_single_point","NetTie:NetTie-2_SMD_Pad0.5mm","1",""
 "R1,R35,R43,R46-R49,R62,REN1","100k","Resistor_SMD:R_0603_1608Metric","9",""

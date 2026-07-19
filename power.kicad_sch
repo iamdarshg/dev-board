@@ -3304,7 +3304,7 @@
 				)
 			)
 		)
-		(property "Value" "1uH, Isat > 15A"
+		(property "Value" "1uH LMLP07C7M1R0DTAS, Idc 15A / Isat 20A"
 			(at 157.21 69.21 0)
 			(effects
 				(font
@@ -3312,7 +3312,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Inductor_SMD:L_TODO_SELECT_1uH_15Aplus"
+		(property "Footprint" "Inductor_SMD:L_Kyocera_LMLP07C7_7.0x6.9mm"
 			(at 157.21 66.67 0)
 			(effects
 				(font
@@ -3321,7 +3321,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheets.kyocera-avx.com/LMLPC.pdf"
 			(at 157.21 66.67 0)
 			(effects
 				(font
@@ -3330,12 +3330,31 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "1uH power inductor, Idc 15A, Isat 20A, DCR ~6.1mOhm, shielded metal-alloy"
 			(at 157.21 66.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "KYOCERA AVX"
+			(at 157.21 66.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "LMLP07C7M1R0DTAS"
+			(at 157.21 66.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
 		)
 		(pin "1"

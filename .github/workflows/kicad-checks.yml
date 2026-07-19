@@ -1,0 +1,132 @@
+name: KiCad checks
+
+# Protects `main`: every pull request into main (and pushes to main) must keep the
+# production board DRC-clean. Run the KiCad 9 CLI headlessly in the official image.
+#
+# The `drc-production` job is the REQUIRED gate (currently 0 violations / 0 unconnected).
+# The `drc-working` and `erc` jobs are informational (continue-on-error) because the
+# working board and schematic still carry documented TODOs (e.g. the 14 unconnected
+# items and the floating SCOPE_BIAS net noted in README.md); flip their
+# `continue-on-error` to false once those are resolved to make them blocking too.
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: kicad-checks-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  drc-production:
+    name: DRC — dev-real-production (required)
+    runs-on: ubuntu-latest
+    container:
+      image: kicad/kicad:9.0
+      options: --user root
+    env:
+      HOME: /tmp
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: KiCad version
+        run: kicad-cli version
+
+      - name: Run DRC on production board
+        run: |
+          set -euo pipefail
+          kicad-cli pcb drc \
+            --output drc-production.json \
+            --format json \
+            --severity-error \
+            --exit-code-violations \
+            dev-real-production.kicad_pcb
+
+      - name: Enforce 0 violations and 0 unconnected
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import json, sys, pathlib
+          p = pathlib.Path("drc-production.json")
+          if not p.exists():
+              sys.exit("DRC report was not produced")
+          d = json.loads(p.read_text())
+          viol = len(d.get("violations", []))
+          unconn = len(d.get("unconnected_items", []))
+          print(f"violations={viol} unconnected={unconn}")
+          if viol or unconn:
+              for v in d.get("violations", [])[:50]:
+                  print("VIOL:", v.get("severity"), v.get("type"), v.get("description"))
+              for u in d.get("unconnected_items", [])[:50]:
+                  print("UNCONNECTED:", u.get("description"))
+              sys.exit("Production board is not clean — blocking merge into main.")
+          print("Production board is DRC-clean.")
+          PY
+
+      - name: Upload DRC report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: drc-production-report
+          path: drc-production.json
+
+  drc-working:
+    name: DRC — dev-real working (informational)
+    runs-on: ubuntu-latest
+    container:
+      image: kicad/kicad:9.0
+      options: --user root
+    env:
+      HOME: /tmp
+    continue-on-error: true
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Run DRC on working board
+        run: |
+          kicad-cli pcb drc \
+            --output drc-working.json \
+            --format json \
+            --severity-error \
+            --exit-code-violations \
+            dev-real.kicad_pcb
+      - name: Upload DRC report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: drc-working-report
+          path: drc-working.json
+
+  erc:
+    name: ERC — dev-real schematic (informational)
+    runs-on: ubuntu-latest
+    container:
+      image: kicad/kicad:9.0
+      options: --user root
+    env:
+      HOME: /tmp
+    continue-on-error: true
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Run ERC on schematic
+        run: |
+          kicad-cli sch erc \
+            --output erc-dev-real.json \
+            --format json \
+            --severity-error \
+            --exit-code-violations \
+            dev-real.kicad_sch
+      - name: Upload ERC report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: erc-report
+          path: erc-dev-real.json
