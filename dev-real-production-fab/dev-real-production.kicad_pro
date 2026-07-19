@@ -1,0 +1,2758 @@
+{
+  "board": {
+    "3dviewports": [],
+    "design_settings": {
+      "defaults": {
+        "apply_defaults_to_fp_fields": false,
+        "apply_defaults_to_fp_shapes": false,
+        "apply_defaults_to_fp_text": false,
+        "board_outline_line_width": 0.05,
+        "copper_line_width": 0.2,
+        "copper_text_italic": false,
+        "copper_text_size_h": 1.5,
+        "copper_text_size_v": 1.5,
+        "copper_text_thickness": 0.3,
+        "copper_text_upright": false,
+        "courtyard_line_width": 0.05,
+        "dimension_precision": 4,
+        "dimension_units": 3,
+        "dimensions": {
+          "arrow_length": 1270000,
+          "extension_offset": 500000,
+          "keep_text_aligned": true,
+          "suppress_zeroes": true,
+          "text_position": 0,
+          "units_format": 0
+        },
+        "fab_line_width": 0.1,
+        "fab_text_italic": false,
+        "fab_text_size_h": 1.0,
+        "fab_text_size_v": 1.0,
+        "fab_text_thickness": 0.15,
+        "fab_text_upright": false,
+        "other_line_width": 0.1,
+        "other_text_italic": false,
+        "other_text_size_h": 1.0,
+        "other_text_size_v": 1.0,
+        "other_text_thickness": 0.15,
+        "other_text_upright": false,
+        "pads": {
+          "drill": 0.8,
+          "height": 1.27,
+          "width": 2.54
+        },
+        "silk_line_width": 0.1,
+        "silk_text_italic": false,
+        "silk_text_size_h": 1.0,
+        "silk_text_size_v": 1.0,
+        "silk_text_thickness": 0.1,
+        "silk_text_upright": false,
+        "zones": {
+          "min_clearance": 0.5
+        }
+      },
+      "diff_pair_dimensions": [],
+      "drc_exclusions": [],
+      "meta": {
+        "version": 2
+      },
+      "rule_severities": {
+        "annular_width": "error",
+        "clearance": "error",
+        "connection_width": "warning",
+        "copper_edge_clearance": "error",
+        "copper_sliver": "warning",
+        "courtyards_overlap": "error",
+        "creepage": "error",
+        "diff_pair_gap_out_of_range": "error",
+        "diff_pair_uncoupled_length_too_long": "error",
+        "drill_out_of_range": "error",
+        "duplicate_footprints": "warning",
+        "extra_footprint": "warning",
+        "footprint": "error",
+        "footprint_filters_mismatch": "ignore",
+        "footprint_symbol_mismatch": "warning",
+        "footprint_type_mismatch": "ignore",
+        "hole_clearance": "error",
+        "hole_to_hole": "warning",
+        "holes_co_located": "warning",
+        "invalid_outline": "error",
+        "isolated_copper": "warning",
+        "item_on_disabled_layer": "error",
+        "items_not_allowed": "error",
+        "length_out_of_range": "error",
+        "lib_footprint_issues": "warning",
+        "lib_footprint_mismatch": "warning",
+        "malformed_courtyard": "error",
+        "microvia_drill_out_of_range": "error",
+        "mirrored_text_on_front_layer": "warning",
+        "missing_courtyard": "ignore",
+        "missing_footprint": "warning",
+        "net_conflict": "warning",
+        "nonmirrored_text_on_back_layer": "warning",
+        "npth_inside_courtyard": "ignore",
+        "padstack": "warning",
+        "pth_inside_courtyard": "ignore",
+        "shorting_items": "error",
+        "silk_edge_clearance": "warning",
+        "silk_over_copper": "warning",
+        "silk_overlap": "warning",
+        "skew_out_of_range": "error",
+        "solder_mask_bridge": "error",
+        "starved_thermal": "error",
+        "text_height": "warning",
+        "text_on_edge_cuts": "error",
+        "text_thickness": "warning",
+        "through_hole_pad_without_hole": "error",
+        "too_many_vias": "error",
+        "track_angle": "error",
+        "track_dangling": "warning",
+        "track_segment_length": "error",
+        "track_width": "error",
+        "tracks_crossing": "error",
+        "unconnected_items": "error",
+        "unresolved_variable": "error",
+        "via_dangling": "warning",
+        "zones_intersect": "error"
+      },
+      "rules": {
+        "max_error": 0.005,
+        "min_clearance": 0.08,
+        "min_connection": 0.0,
+        "min_copper_edge_clearance": 0.5,
+        "min_groove_width": 0.0,
+        "min_hole_clearance": 0.12,
+        "min_hole_to_hole": 0.15,
+        "min_microvia_diameter": 0.2,
+        "min_microvia_drill": 0.1,
+        "min_resolved_spokes": 2,
+        "min_silk_clearance": 0.0,
+        "min_text_height": 0.8,
+        "min_text_thickness": 0.08,
+        "min_through_hole_diameter": 0.127,
+        "min_track_width": 0.0,
+        "min_via_annular_width": 0.05,
+        "min_via_diameter": 0.2,
+        "solder_mask_to_copper_clearance": 0.0,
+        "use_height_for_length_calcs": true
+      },
+      "teardrop_options": [
+        {
+          "td_onpthpad": true,
+          "td_onroundshapesonly": false,
+          "td_onsmdpad": true,
+          "td_ontrackend": false,
+          "td_onvia": true
+        }
+      ],
+      "teardrop_parameters": [
+        {
+          "td_allow_use_two_tracks": true,
+          "td_curve_segcount": 0,
+          "td_height_ratio": 1.0,
+          "td_length_ratio": 0.5,
+          "td_maxheight": 2.0,
+          "td_maxlen": 1.0,
+          "td_on_pad_in_zone": false,
+          "td_target_name": "td_round_shape",
+          "td_width_to_size_filter_ratio": 0.9
+        },
+        {
+          "td_allow_use_two_tracks": true,
+          "td_curve_segcount": 0,
+          "td_height_ratio": 1.0,
+          "td_length_ratio": 0.5,
+          "td_maxheight": 2.0,
+          "td_maxlen": 1.0,
+          "td_on_pad_in_zone": false,
+          "td_target_name": "td_rect_shape",
+          "td_width_to_size_filter_ratio": 0.9
+        },
+        {
+          "td_allow_use_two_tracks": true,
+          "td_curve_segcount": 0,
+          "td_height_ratio": 1.0,
+          "td_length_ratio": 0.5,
+          "td_maxheight": 2.0,
+          "td_maxlen": 1.0,
+          "td_on_pad_in_zone": false,
+          "td_target_name": "td_track_end",
+          "td_width_to_size_filter_ratio": 0.9
+        }
+      ],
+      "track_widths": [],
+      "tuning_pattern_settings": {
+        "diff_pair_defaults": {
+          "corner_radius_percentage": 80,
+          "corner_style": 1,
+          "max_amplitude": 1.0,
+          "min_amplitude": 0.2,
+          "single_sided": false,
+          "spacing": 1.0
+        },
+        "diff_pair_skew_defaults": {
+          "corner_radius_percentage": 80,
+          "corner_style": 1,
+          "max_amplitude": 1.0,
+          "min_amplitude": 0.2,
+          "single_sided": false,
+          "spacing": 0.6
+        },
+        "single_track_defaults": {
+          "corner_radius_percentage": 80,
+          "corner_style": 1,
+          "max_amplitude": 1.0,
+          "min_amplitude": 0.2,
+          "single_sided": false,
+          "spacing": 0.6
+        }
+      },
+      "via_dimensions": [],
+      "zones_allow_external_fillets": false
+    },
+    "ipc2581": {
+      "dist": "",
+      "distpn": "",
+      "internal_id": "",
+      "mfg": "",
+      "mpn": ""
+    },
+    "layer_pairs": [],
+    "layer_presets": [],
+    "viewports": []
+  },
+  "boards": [],
+  "cvpcb": {
+    "equivalence_files": []
+  },
+  "libraries": {
+    "pinned_footprint_libs": [],
+    "pinned_symbol_libs": []
+  },
+  "meta": {
+    "filename": "dev-real-stage39.kicad_pro",
+    "version": 3
+  },
+  "net_settings": {
+    "classes": [
+      {
+        "bus_width": 12,
+        "clearance": 0.08,
+        "diff_pair_gap": 0.25,
+        "diff_pair_via_gap": 0.25,
+        "diff_pair_width": 0.2,
+        "line_style": 0,
+        "microvia_diameter": 0.2,
+        "microvia_drill": 0.1,
+        "name": "Default",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "priority": -1,
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "track_width": 0.127,
+        "via_diameter": 0.254,
+        "via_drill": 0.127,
+        "wire_width": 6
+      },
+      {
+        "bus_width": 12,
+        "clearance": 0.08,
+        "diff_pair_gap": 0.25,
+        "diff_pair_via_gap": 0.25,
+        "diff_pair_width": 0.2,
+        "line_style": 0,
+        "microvia_diameter": 0.2,
+        "microvia_drill": 0.1,
+        "name": "IGNORE",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "priority": -1,
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "track_width": 0.127,
+        "via_diameter": 0.254,
+        "via_drill": 0.127,
+        "wire_width": 6
+      },
+      {
+        "bus_width": 12,
+        "clearance": 0.08,
+        "diff_pair_gap": 0.12,
+        "diff_pair_via_gap": 0.12,
+        "diff_pair_width": 0.127,
+        "line_style": 0,
+        "microvia_diameter": 0.2,
+        "microvia_drill": 0.1,
+        "name": "IWRL_ESCAPE",
+        "pcb_color": "rgb(120, 185, 105)",
+        "priority": 0,
+        "schematic_color": "rgb(120, 185, 105)",
+        "track_width": 0.127,
+        "via_diameter": 0.254,
+        "via_drill": 0.127,
+        "wire_width": 6
+      },
+      {
+        "bus_width": 12,
+        "clearance": 0.08,
+        "diff_pair_gap": 0.15,
+        "diff_pair_via_gap": 0.15,
+        "diff_pair_width": 0.127,
+        "line_style": 0,
+        "microvia_diameter": 0.2,
+        "microvia_drill": 0.1,
+        "name": "SIGNAL_6MIL",
+        "pcb_color": "rgb(70, 165, 235)",
+        "priority": 0,
+        "schematic_color": "rgb(70, 165, 235)",
+        "track_width": 0.127,
+        "via_diameter": 0.254,
+        "via_drill": 0.127,
+        "wire_width": 6
+      },
+      {
+        "bus_width": 12,
+        "clearance": 0.08,
+        "diff_pair_gap": 0.15,
+        "diff_pair_via_gap": 0.15,
+        "diff_pair_width": 0.15,
+        "line_style": 0,
+        "microvia_diameter": 0.2,
+        "microvia_drill": 0.1,
+        "name": "SIGNAL_PAIR",
+        "pcb_color": "rgb(245, 120, 85)",
+        "priority": 0,
+        "schematic_color": "rgb(245, 120, 85)",
+        "track_width": 0.15,
+        "via_diameter": 0.254,
+        "via_drill": 0.127,
+        "wire_width": 6
+      }
+    ],
+    "meta": {
+      "version": 4
+    },
+    "net_colors": null,
+    "netclass_assignments": {
+      "/AD9609/ADC_VIN_N": [
+        "SIGNAL_PAIR"
+      ],
+      "/AD9609/ADC_VIN_P": [
+        "SIGNAL_PAIR"
+      ],
+      "/AD9609/CLK_N": [
+        "SIGNAL_PAIR"
+      ],
+      "/AD9609/CLK_P": [
+        "SIGNAL_PAIR"
+      ],
+      "/AD9609/CSB": [
+        "SIGNAL_6MIL"
+      ],
+      "/AD9609/D0": [
+        "SIGNAL_6MIL"
+      ],
+      "/AD9609/D1": [
+        "SIGNAL_6MIL"
+      ],
+      "/AD9609/D2": [
+        "SIGNAL_6MIL"
+      ],
+      "/AD9609/D3": [
+        "SIGNAL_6MIL"
+      ],
+      "/AD9609/D4": [
+        "SIGNAL_6MIL"
+      ],
+      "/AD9609/D5": [
+        "SIGNAL_6MIL"
+      ],
+      "/AD9609/D6": [
+        "SIGNAL_6MIL"
+      ],
+      "/AD9609/D7": [
+        "SIGNAL_6MIL"
+      ],
+      "/AD9609/D8": [
+        "SIGNAL_6MIL"
+      ],
+      "/AD9609/D9": [
+        "SIGNAL_6MIL"
+      ],
+      "/AD9609/DCO": [
+        "SIGNAL_6MIL"
+      ],
+      "/AD9609/MCP_IN_N": [
+        "SIGNAL_PAIR"
+      ],
+      "/AD9609/MCP_IN_P": [
+        "SIGNAL_PAIR"
+      ],
+      "/AD9609/MCP_OUT_N": [
+        "SIGNAL_PAIR"
+      ],
+      "/AD9609/MCP_OUT_P": [
+        "SIGNAL_PAIR"
+      ],
+      "/AD9609/MODE_OR": [
+        "SIGNAL_6MIL"
+      ],
+      "/AD9609/PGA_OUT": [
+        "SIGNAL_6MIL"
+      ],
+      "/AD9609/RBIAS": [
+        "SIGNAL_6MIL"
+      ],
+      "/AD9609/SCLK_DFS": [
+        "SIGNAL_6MIL"
+      ],
+      "/AD9609/SCOPE_BIAS": [
+        "SIGNAL_6MIL"
+      ],
+      "/AD9609/SCOPE_DRIVER_PD_N": [
+        "SIGNAL_6MIL"
+      ],
+      "/AD9609/SCOPE_PGA_CS_N": [
+        "SIGNAL_6MIL"
+      ],
+      "/AD9609/SCOPE_PGA_DIO": [
+        "SIGNAL_6MIL"
+      ],
+      "/AD9609/SCOPE_PGA_SCLK": [
+        "SIGNAL_6MIL"
+      ],
+      "/AD9609/SDIO_PDWN": [
+        "SIGNAL_6MIL"
+      ],
+      "/AD9609/VCM": [
+        "SIGNAL_6MIL"
+      ],
+      "/AD9609/VREF": [
+        "SIGNAL_6MIL"
+      ],
+      "/IWRL6432BD/FT_RXD": [
+        "IWRL_ESCAPE"
+      ],
+      "/IWRL6432BD/FT_TXD": [
+        "IWRL_ESCAPE"
+      ],
+      "/IWRL6432BD/FT_USBDM": [
+        "SIGNAL_PAIR"
+      ],
+      "/IWRL6432BD/FT_USBDP": [
+        "SIGNAL_PAIR"
+      ],
+      "/IWRL6432BD/GPIO_0": [
+        "IWRL_ESCAPE"
+      ],
+      "/IWRL6432BD/GPIO_1": [
+        "IWRL_ESCAPE"
+      ],
+      "/IWRL6432BD/GPIO_2": [
+        "IWRL_ESCAPE"
+      ],
+      "/IWRL6432BD/GPIO_3": [
+        "IWRL_ESCAPE"
+      ],
+      "/IWRL6432BD/GPIO_4": [
+        "IWRL_ESCAPE"
+      ],
+      "/IWRL6432BD/GPIO_5": [
+        "IWRL_ESCAPE"
+      ],
+      "/IWRL6432BD/GPIO_6": [
+        "IWRL_ESCAPE"
+      ],
+      "/IWRL6432BD/GPIO_7": [
+        "IWRL_ESCAPE"
+      ],
+      "/IWRL6432BD/JTAG_TCK": [
+        "IWRL_ESCAPE"
+      ],
+      "/IWRL6432BD/JTAG_TDI": [
+        "IWRL_ESCAPE"
+      ],
+      "/IWRL6432BD/JTAG_TMS": [
+        "IWRL_ESCAPE"
+      ],
+      "/IWRL6432BD/NRESET": [
+        "IWRL_ESCAPE"
+      ],
+      "/IWRL6432BD/PMIC_CLKOUT_SOP1": [
+        "IWRL_ESCAPE"
+      ],
+      "/IWRL6432BD/QSPI_CLK": [
+        "IWRL_ESCAPE"
+      ],
+      "/IWRL6432BD/QSPI_CS": [
+        "IWRL_ESCAPE"
+      ],
+      "/IWRL6432BD/QSPI_D0": [
+        "IWRL_ESCAPE"
+      ],
+      "/IWRL6432BD/QSPI_D1": [
+        "IWRL_ESCAPE"
+      ],
+      "/IWRL6432BD/QSPI_D2": [
+        "IWRL_ESCAPE"
+      ],
+      "/IWRL6432BD/QSPI_D3": [
+        "IWRL_ESCAPE"
+      ],
+      "/IWRL6432BD/RADAR_VBGAP": [
+        "IWRL_ESCAPE"
+      ],
+      "/IWRL6432BD/RDIF_D2": [
+        "IWRL_ESCAPE"
+      ],
+      "/IWRL6432BD/RS232_RX": [
+        "IWRL_ESCAPE"
+      ],
+      "/IWRL6432BD/RS232_TX": [
+        "IWRL_ESCAPE"
+      ],
+      "/IWRL6432BD/TDO_SOP0": [
+        "IWRL_ESCAPE"
+      ],
+      "/IWRL6432BD/USB_DM_CONN": [
+        "SIGNAL_PAIR"
+      ],
+      "/IWRL6432BD/USB_DP_CONN": [
+        "SIGNAL_PAIR"
+      ],
+      "/IWRL6432BD/USB_ID": [
+        "IWRL_ESCAPE"
+      ],
+      "/IWRL6432BD/XTALM": [
+        "IWRL_ESCAPE"
+      ],
+      "/IWRL6432BD/XTALP": [
+        "IWRL_ESCAPE"
+      ],
+      "/MM8108/BUSY": [
+        "SIGNAL_6MIL"
+      ],
+      "/MM8108/JTAG_TCK": [
+        "SIGNAL_6MIL"
+      ],
+      "/MM8108/JTAG_TDI": [
+        "SIGNAL_6MIL"
+      ],
+      "/MM8108/JTAG_TMS": [
+        "SIGNAL_6MIL"
+      ],
+      "/MM8108/NRESET": [
+        "SIGNAL_6MIL"
+      ],
+      "/MM8108/SDIO_CLK_SPI_SCK": [
+        "SIGNAL_6MIL"
+      ],
+      "/MM8108/SDIO_CMD_SPI_MOSI": [
+        "SIGNAL_6MIL"
+      ],
+      "/MM8108/SDIO_D0_SPI_MISO": [
+        "SIGNAL_6MIL"
+      ],
+      "/MM8108/SDIO_D1_SPI_INT": [
+        "SIGNAL_6MIL"
+      ],
+      "/MM8108/SDIO_D2": [
+        "SIGNAL_6MIL"
+      ],
+      "/MM8108/SDIO_D3_SPI_CS": [
+        "SIGNAL_6MIL"
+      ],
+      "/MM8108/TDO_SOP0": [
+        "SIGNAL_6MIL"
+      ],
+      "/MM8108/WAKE": [
+        "SIGNAL_6MIL"
+      ],
+      "/RP2350/CC1": [
+        "SIGNAL_6MIL"
+      ],
+      "/RP2350/CC2": [
+        "SIGNAL_6MIL"
+      ],
+      "/RP2350/GPIO0": [
+        "SIGNAL_6MIL"
+      ],
+      "/RP2350/GPIO1": [
+        "SIGNAL_6MIL"
+      ],
+      "/RP2350/GPIO10": [
+        "SIGNAL_6MIL"
+      ],
+      "/RP2350/GPIO11": [
+        "SIGNAL_6MIL"
+      ],
+      "/RP2350/GPIO12": [
+        "SIGNAL_6MIL"
+      ],
+      "/RP2350/GPIO13": [
+        "SIGNAL_6MIL"
+      ],
+      "/RP2350/GPIO14": [
+        "SIGNAL_6MIL"
+      ],
+      "/RP2350/GPIO15": [
+        "SIGNAL_6MIL"
+      ],
+      "/RP2350/GPIO2": [
+        "SIGNAL_6MIL"
+      ],
+      "/RP2350/GPIO25": [
+        "SIGNAL_6MIL"
+      ],
+      "/RP2350/GPIO26": [
+        "SIGNAL_6MIL"
+      ],
+      "/RP2350/GPIO27": [
+        "SIGNAL_6MIL"
+      ],
+      "/RP2350/GPIO28": [
+        "SIGNAL_6MIL"
+      ],
+      "/RP2350/GPIO29": [
+        "SIGNAL_6MIL"
+      ],
+      "/RP2350/GPIO3": [
+        "SIGNAL_6MIL"
+      ],
+      "/RP2350/GPIO30": [
+        "SIGNAL_6MIL"
+      ],
+      "/RP2350/GPIO31": [
+        "SIGNAL_6MIL"
+      ],
+      "/RP2350/GPIO32": [
+        "SIGNAL_6MIL"
+      ],
+      "/RP2350/GPIO33": [
+        "SIGNAL_6MIL"
+      ],
+      "/RP2350/GPIO34": [
+        "SIGNAL_6MIL"
+      ],
+      "/RP2350/GPIO35": [
+        "SIGNAL_6MIL"
+      ],
+      "/RP2350/GPIO36": [
+        "SIGNAL_6MIL"
+      ],
+      "/RP2350/GPIO37": [
+        "SIGNAL_6MIL"
+      ],
+      "/RP2350/GPIO38": [
+        "SIGNAL_6MIL"
+      ],
+      "/RP2350/GPIO39": [
+        "SIGNAL_6MIL"
+      ],
+      "/RP2350/GPIO4": [
+        "SIGNAL_6MIL"
+      ],
+      "/RP2350/GPIO40_ADC0": [
+        "SIGNAL_6MIL"
+      ],
+      "/RP2350/GPIO41_ADC1": [
+        "SIGNAL_6MIL"
+      ],
+      "/RP2350/GPIO42_ADC2": [
+        "SIGNAL_6MIL"
+      ],
+      "/RP2350/GPIO43_ADC3": [
+        "SIGNAL_6MIL"
+      ],
+      "/RP2350/GPIO44_ADC4": [
+        "SIGNAL_6MIL"
+      ],
+      "/RP2350/GPIO45_ADC5": [
+        "SIGNAL_6MIL"
+      ],
+      "/RP2350/GPIO46_ADC6": [
+        "SIGNAL_6MIL"
+      ],
+      "/RP2350/GPIO47_ADC7": [
+        "SIGNAL_6MIL"
+      ],
+      "/RP2350/GPIO6": [
+        "SIGNAL_6MIL"
+      ],
+      "/RP2350/GPIO7": [
+        "SIGNAL_6MIL"
+      ],
+      "/RP2350/GPIO8": [
+        "SIGNAL_6MIL"
+      ],
+      "/RP2350/GPIO9": [
+        "SIGNAL_6MIL"
+      ],
+      "/RP2350/SWCLK": [
+        "SIGNAL_6MIL"
+      ],
+      "/RP2350/SWDIO": [
+        "SIGNAL_6MIL"
+      ],
+      "/RP2350/USB_DM_IC": [
+        "SIGNAL_PAIR"
+      ],
+      "/RP2350/USB_DP_IC": [
+        "SIGNAL_PAIR"
+      ],
+      "/RP2350/USB_D_N_CONN": [
+        "SIGNAL_PAIR"
+      ],
+      "/RP2350/USB_D_P_CONN": [
+        "SIGNAL_PAIR"
+      ],
+      "/RP2350/XIN": [
+        "SIGNAL_6MIL"
+      ],
+      "/RP2350/XOUT": [
+        "SIGNAL_6MIL"
+      ],
+      "/RP2350/XOUT_XTAL": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/BOOT0": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/ETH_CRS_DV": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/ETH_LED1": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/ETH_LED2": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/ETH_MDC": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/ETH_MDIO": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/ETH_PHY_RESET": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/ETH_REF_CLK": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/ETH_RXD0": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/ETH_RXD1": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/ETH_TXD0": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/ETH_TXD1": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/ETH_TX_EN": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/HSE_IN": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/HSE_OUT": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/JTDI": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/LSE_IN": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/LSE_OUT": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/NRST": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/PB10": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/PB13": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/PB14": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/PB15": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/PB2": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/PB5": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/PB6": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/PC0": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/PC13": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/PC2": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/PC3": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/PC6": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/PC7": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/PE0": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/PE1": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/PE2": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/PE3": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/PE4": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/PE5": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/PE6": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/PHY_RBIAS": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/PHY_RXER": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/PHY_RXN": [
+        "SIGNAL_PAIR"
+      ],
+      "/STM32H7/PHY_RXP": [
+        "SIGNAL_PAIR"
+      ],
+      "/STM32H7/PHY_TXN": [
+        "SIGNAL_PAIR"
+      ],
+      "/STM32H7/PHY_TXP": [
+        "SIGNAL_PAIR"
+      ],
+      "/STM32H7/PHY_XTAL1": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/PHY_XTAL2": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/PM0": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/PM1": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/PM13": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/PM2": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/PM3": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/PM5": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/PM6": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/PM8": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/PM9": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/PO0": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/PO1": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/PO5": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/PP7": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/RJ_LED_GREEN_A": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/RJ_LED_YELLOW_A": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/SWCLK": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/SWDIO": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/SWO": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/USB_CC1": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/USB_CC2": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/USB_CONN_DM": [
+        "SIGNAL_PAIR"
+      ],
+      "/STM32H7/USB_CONN_DP": [
+        "SIGNAL_PAIR"
+      ],
+      "/STM32H7/USB_DM_ESD": [
+        "SIGNAL_PAIR"
+      ],
+      "/STM32H7/USB_DP_ESD": [
+        "SIGNAL_PAIR"
+      ],
+      "/STM32H7/USB_FS_DM": [
+        "SIGNAL_PAIR"
+      ],
+      "/STM32H7/USB_FS_DP": [
+        "SIGNAL_PAIR"
+      ],
+      "/STM32H7/USB_SHIELD": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/USB_VBUS_SENSE": [
+        "SIGNAL_6MIL"
+      ],
+      "/STM32H7/VREFP": [
+        "SIGNAL_6MIL"
+      ],
+      "/THX8136/AB": [
+        "SIGNAL_6MIL"
+      ],
+      "/THX8136/AG": [
+        "SIGNAL_6MIL"
+      ],
+      "/THX8136/AR": [
+        "SIGNAL_6MIL"
+      ],
+      "/THX8136/BLANK": [
+        "SIGNAL_6MIL"
+      ],
+      "/THX8136/COMP": [
+        "SIGNAL_6MIL"
+      ],
+      "/THX8136/FSADJ": [
+        "SIGNAL_6MIL"
+      ],
+      "/THX8136/M2": [
+        "SIGNAL_6MIL"
+      ],
+      "/THX8136/SYNC": [
+        "SIGNAL_6MIL"
+      ],
+      "/THX8136/SYNC_T": [
+        "SIGNAL_6MIL"
+      ],
+      "/THX8136/VREF": [
+        "SIGNAL_6MIL"
+      ],
+      "/XCC1352R1F3RGZR/ANT_50OHM": [
+        "SIGNAL_6MIL"
+      ],
+      "/XCC1352R1F3RGZR/ANT_MATCH_IN": [
+        "SIGNAL_6MIL"
+      ],
+      "/XCC1352R1F3RGZR/DIO_10": [
+        "SIGNAL_6MIL"
+      ],
+      "/XCC1352R1F3RGZR/DIO_11": [
+        "SIGNAL_6MIL"
+      ],
+      "/XCC1352R1F3RGZR/DIO_12": [
+        "SIGNAL_6MIL"
+      ],
+      "/XCC1352R1F3RGZR/DIO_13": [
+        "SIGNAL_6MIL"
+      ],
+      "/XCC1352R1F3RGZR/DIO_16": [
+        "SIGNAL_6MIL"
+      ],
+      "/XCC1352R1F3RGZR/DIO_17": [
+        "SIGNAL_6MIL"
+      ],
+      "/XCC1352R1F3RGZR/DIO_18": [
+        "SIGNAL_6MIL"
+      ],
+      "/XCC1352R1F3RGZR/DIO_19": [
+        "SIGNAL_6MIL"
+      ],
+      "/XCC1352R1F3RGZR/DIO_20": [
+        "SIGNAL_6MIL"
+      ],
+      "/XCC1352R1F3RGZR/DIO_21": [
+        "SIGNAL_6MIL"
+      ],
+      "/XCC1352R1F3RGZR/DIO_22": [
+        "SIGNAL_6MIL"
+      ],
+      "/XCC1352R1F3RGZR/DIO_23": [
+        "SIGNAL_6MIL"
+      ],
+      "/XCC1352R1F3RGZR/DIO_24": [
+        "SIGNAL_6MIL"
+      ],
+      "/XCC1352R1F3RGZR/DIO_25": [
+        "SIGNAL_6MIL"
+      ],
+      "/XCC1352R1F3RGZR/DIO_26": [
+        "SIGNAL_6MIL"
+      ],
+      "/XCC1352R1F3RGZR/DIO_27": [
+        "SIGNAL_6MIL"
+      ],
+      "/XCC1352R1F3RGZR/DIO_28": [
+        "SIGNAL_6MIL"
+      ],
+      "/XCC1352R1F3RGZR/DIO_29": [
+        "SIGNAL_6MIL"
+      ],
+      "/XCC1352R1F3RGZR/DIO_30": [
+        "SIGNAL_6MIL"
+      ],
+      "/XCC1352R1F3RGZR/JTAG_TCKC": [
+        "SIGNAL_6MIL"
+      ],
+      "/XCC1352R1F3RGZR/JTAG_TMSC": [
+        "SIGNAL_6MIL"
+      ],
+      "/XCC1352R1F3RGZR/RESET_N": [
+        "SIGNAL_6MIL"
+      ],
+      "/XCC1352R1F3RGZR/RF_2G4_UNBAL": [
+        "SIGNAL_6MIL"
+      ],
+      "/XCC1352R1F3RGZR/RF_COMMON": [
+        "SIGNAL_6MIL"
+      ],
+      "/XCC1352R1F3RGZR/RF_N_2_4GHZ": [
+        "SIGNAL_PAIR"
+      ],
+      "/XCC1352R1F3RGZR/RF_N_SUB_1GHZ": [
+        "SIGNAL_PAIR"
+      ],
+      "/XCC1352R1F3RGZR/RF_P_2_4GHZ": [
+        "SIGNAL_PAIR"
+      ],
+      "/XCC1352R1F3RGZR/RF_P_SUB_1GHZ": [
+        "SIGNAL_PAIR"
+      ],
+      "/XCC1352R1F3RGZR/RX_TX": [
+        "SIGNAL_6MIL"
+      ],
+      "Net-(J17-CC1)": [
+        "SIGNAL_6MIL"
+      ],
+      "Net-(J17-CC2)": [
+        "SIGNAL_6MIL"
+      ],
+      "Net-(J17-D+-PadA6)": [
+        "SIGNAL_PAIR"
+      ],
+      "Net-(J17-D--PadA7)": [
+        "SIGNAL_PAIR"
+      ],
+      "Net-(J17-SHIELD)": [
+        "SIGNAL_6MIL"
+      ],
+      "Net-(J18-Pin_2)": [
+        "SIGNAL_6MIL"
+      ],
+      "Net-(R13-Pad1)": [
+        "SIGNAL_PAIR"
+      ],
+      "Net-(R14-Pad1)": [
+        "SIGNAL_PAIR"
+      ],
+      "Net-(U18-USB_D_N)": [
+        "SIGNAL_PAIR"
+      ],
+      "Net-(U18-USB_D_P)": [
+        "SIGNAL_PAIR"
+      ],
+      "Net-(U20-CH1)": [
+        "SIGNAL_6MIL"
+      ],
+      "unconnected-(J7-Pin_2-Pad2)": [
+        "SIGNAL_6MIL"
+      ]
+    },
+    "netclass_patterns": [
+      {
+        "netclass": "IGNORE",
+        "pattern": "+3V3"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/AD9609/3V3_AFE"
+      },
+      {
+        "netclass": "SIGNAL_PAIR",
+        "pattern": "/AD9609/ADC_VIN_N"
+      },
+      {
+        "netclass": "SIGNAL_PAIR",
+        "pattern": "/AD9609/ADC_VIN_P"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/AD9609/AVDD_1V8"
+      },
+      {
+        "netclass": "SIGNAL_PAIR",
+        "pattern": "/AD9609/CLK_N"
+      },
+      {
+        "netclass": "SIGNAL_PAIR",
+        "pattern": "/AD9609/CLK_P"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/AD9609/CSB"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/AD9609/D0"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/AD9609/D1"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/AD9609/D2"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/AD9609/D3"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/AD9609/D4"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/AD9609/D5"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/AD9609/D6"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/AD9609/D7"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/AD9609/D8"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/AD9609/D9"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/AD9609/DCO"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/AD9609/DRVDD_3V3"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/AD9609/LDO_1V8"
+      },
+      {
+        "netclass": "SIGNAL_PAIR",
+        "pattern": "/AD9609/MCP_IN_N"
+      },
+      {
+        "netclass": "SIGNAL_PAIR",
+        "pattern": "/AD9609/MCP_IN_P"
+      },
+      {
+        "netclass": "SIGNAL_PAIR",
+        "pattern": "/AD9609/MCP_OUT_N"
+      },
+      {
+        "netclass": "SIGNAL_PAIR",
+        "pattern": "/AD9609/MCP_OUT_P"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/AD9609/MODE_OR"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/AD9609/PGA_OUT"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/AD9609/RBIAS"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/AD9609/SCLK_DFS"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/AD9609/SCOPE_BIAS"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/AD9609/SCOPE_DRIVER_PD_N"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/AD9609/SCOPE_PGA_CS_N"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/AD9609/SCOPE_PGA_DIO"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/AD9609/SCOPE_PGA_SCLK"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/AD9609/SDIO_PDWN"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/AD9609/VCM"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/AD9609/VREF"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/IWRL6432BD/1V8"
+      },
+      {
+        "netclass": "IWRL_ESCAPE",
+        "pattern": "/IWRL6432BD/FT_RXD"
+      },
+      {
+        "netclass": "IWRL_ESCAPE",
+        "pattern": "/IWRL6432BD/FT_TXD"
+      },
+      {
+        "netclass": "SIGNAL_PAIR",
+        "pattern": "/IWRL6432BD/FT_USBDM"
+      },
+      {
+        "netclass": "SIGNAL_PAIR",
+        "pattern": "/IWRL6432BD/FT_USBDP"
+      },
+      {
+        "netclass": "IWRL_ESCAPE",
+        "pattern": "/IWRL6432BD/GPIO_0"
+      },
+      {
+        "netclass": "IWRL_ESCAPE",
+        "pattern": "/IWRL6432BD/GPIO_1"
+      },
+      {
+        "netclass": "IWRL_ESCAPE",
+        "pattern": "/IWRL6432BD/GPIO_2"
+      },
+      {
+        "netclass": "IWRL_ESCAPE",
+        "pattern": "/IWRL6432BD/GPIO_3"
+      },
+      {
+        "netclass": "IWRL_ESCAPE",
+        "pattern": "/IWRL6432BD/GPIO_4"
+      },
+      {
+        "netclass": "IWRL_ESCAPE",
+        "pattern": "/IWRL6432BD/GPIO_5"
+      },
+      {
+        "netclass": "IWRL_ESCAPE",
+        "pattern": "/IWRL6432BD/GPIO_6"
+      },
+      {
+        "netclass": "IWRL_ESCAPE",
+        "pattern": "/IWRL6432BD/GPIO_7"
+      },
+      {
+        "netclass": "IWRL_ESCAPE",
+        "pattern": "/IWRL6432BD/JTAG_TCK"
+      },
+      {
+        "netclass": "IWRL_ESCAPE",
+        "pattern": "/IWRL6432BD/JTAG_TDI"
+      },
+      {
+        "netclass": "IWRL_ESCAPE",
+        "pattern": "/IWRL6432BD/JTAG_TMS"
+      },
+      {
+        "netclass": "IWRL_ESCAPE",
+        "pattern": "/IWRL6432BD/NRESET"
+      },
+      {
+        "netclass": "IWRL_ESCAPE",
+        "pattern": "/IWRL6432BD/PMIC_CLKOUT_SOP1"
+      },
+      {
+        "netclass": "IWRL_ESCAPE",
+        "pattern": "/IWRL6432BD/QSPI_CLK"
+      },
+      {
+        "netclass": "IWRL_ESCAPE",
+        "pattern": "/IWRL6432BD/QSPI_CS"
+      },
+      {
+        "netclass": "IWRL_ESCAPE",
+        "pattern": "/IWRL6432BD/QSPI_D0"
+      },
+      {
+        "netclass": "IWRL_ESCAPE",
+        "pattern": "/IWRL6432BD/QSPI_D1"
+      },
+      {
+        "netclass": "IWRL_ESCAPE",
+        "pattern": "/IWRL6432BD/QSPI_D2"
+      },
+      {
+        "netclass": "IWRL_ESCAPE",
+        "pattern": "/IWRL6432BD/QSPI_D3"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/IWRL6432BD/RADAR_1P2_RF"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/IWRL6432BD/RADAR_1V2_INT"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/IWRL6432BD/RADAR_1V4_APLL"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/IWRL6432BD/RADAR_1V4_SYNTH"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/IWRL6432BD/RADAR_1V_RF_OUT"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/IWRL6432BD/RADAR_SRAM_1V2"
+      },
+      {
+        "netclass": "IWRL_ESCAPE",
+        "pattern": "/IWRL6432BD/RADAR_VBGAP"
+      },
+      {
+        "netclass": "IWRL_ESCAPE",
+        "pattern": "/IWRL6432BD/RDIF_D2"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/IWRL6432BD/RF_RX1"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/IWRL6432BD/RF_RX2"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/IWRL6432BD/RF_RX3"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/IWRL6432BD/RF_TX1"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/IWRL6432BD/RF_TX2"
+      },
+      {
+        "netclass": "IWRL_ESCAPE",
+        "pattern": "/IWRL6432BD/RS232_RX"
+      },
+      {
+        "netclass": "IWRL_ESCAPE",
+        "pattern": "/IWRL6432BD/RS232_TX"
+      },
+      {
+        "netclass": "IWRL_ESCAPE",
+        "pattern": "/IWRL6432BD/TDO_SOP0"
+      },
+      {
+        "netclass": "SIGNAL_PAIR",
+        "pattern": "/IWRL6432BD/USB_DM_CONN"
+      },
+      {
+        "netclass": "SIGNAL_PAIR",
+        "pattern": "/IWRL6432BD/USB_DP_CONN"
+      },
+      {
+        "netclass": "IWRL_ESCAPE",
+        "pattern": "/IWRL6432BD/USB_ID"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/IWRL6432BD/USB_VBUS"
+      },
+      {
+        "netclass": "IWRL_ESCAPE",
+        "pattern": "/IWRL6432BD/XTALM"
+      },
+      {
+        "netclass": "IWRL_ESCAPE",
+        "pattern": "/IWRL6432BD/XTALP"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/MM8108/3V3"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/MM8108/3V3_MM8108"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/MM8108/ANT"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/MM8108/BUSY"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/MM8108/GPIO0"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/MM8108/GPIO1"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/MM8108/GPIO10"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/MM8108/GPIO3"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/MM8108/GPIO4"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/MM8108/GPIO5"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/MM8108/GPIO6"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/MM8108/GPIO7"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/MM8108/GPIO8"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/MM8108/GPIO9"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/MM8108/JTAG_TCK"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/MM8108/JTAG_TDI"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/MM8108/JTAG_TMS"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/MM8108/NRESET"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/MM8108/SDIO_CLK_SPI_SCK"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/MM8108/SDIO_CMD_SPI_MOSI"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/MM8108/SDIO_D0_SPI_MISO"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/MM8108/SDIO_D1_SPI_INT"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/MM8108/SDIO_D2"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/MM8108/SDIO_D3_SPI_CS"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/MM8108/TDO_SOP0"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/MM8108/WAKE"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/Power/AGND"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/Power/BST"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/Power/EN"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/Power/EXTVDD"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/Power/FB"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/Power/FREQ"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/Power/ILIM"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/Power/MODE_SS"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/Power/PG"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/Power/PVDD"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/Power/RIPPLE_INJ"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/Power/SVIN"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/Power/SW"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/Power/VDD"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/Power/VIN"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/RP2350/+1V1"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/RP2350/CC1"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/RP2350/CC2"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/RP2350/GPIO0"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/RP2350/GPIO1"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/RP2350/GPIO10"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/RP2350/GPIO11"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/RP2350/GPIO12"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/RP2350/GPIO13"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/RP2350/GPIO14"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/RP2350/GPIO15"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/RP2350/GPIO2"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/RP2350/GPIO25"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/RP2350/GPIO26"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/RP2350/GPIO27"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/RP2350/GPIO28"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/RP2350/GPIO29"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/RP2350/GPIO3"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/RP2350/GPIO30"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/RP2350/GPIO31"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/RP2350/GPIO32"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/RP2350/GPIO33"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/RP2350/GPIO34"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/RP2350/GPIO35"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/RP2350/GPIO36"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/RP2350/GPIO37"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/RP2350/GPIO38"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/RP2350/GPIO39"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/RP2350/GPIO4"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/RP2350/GPIO40_ADC0"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/RP2350/GPIO41_ADC1"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/RP2350/GPIO42_ADC2"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/RP2350/GPIO43_ADC3"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/RP2350/GPIO44_ADC4"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/RP2350/GPIO45_ADC5"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/RP2350/GPIO46_ADC6"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/RP2350/GPIO47_ADC7"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/RP2350/GPIO5"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/RP2350/GPIO6"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/RP2350/GPIO7"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/RP2350/GPIO8"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/RP2350/GPIO9"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/RP2350/NC_SBU1"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/RP2350/NC_SBU2"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/RP2350/RUN"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/RP2350/SWCLK"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/RP2350/SWDIO"
+      },
+      {
+        "netclass": "SIGNAL_PAIR",
+        "pattern": "/RP2350/USB_DM_IC"
+      },
+      {
+        "netclass": "SIGNAL_PAIR",
+        "pattern": "/RP2350/USB_DP_IC"
+      },
+      {
+        "netclass": "SIGNAL_PAIR",
+        "pattern": "/RP2350/USB_D_N_CONN"
+      },
+      {
+        "netclass": "SIGNAL_PAIR",
+        "pattern": "/RP2350/USB_D_P_CONN"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/RP2350/USB_VBUS"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/RP2350/VREG_AVDD"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/RP2350/VREG_LX"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/RP2350/XIN"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/RP2350/XOUT"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/RP2350/XOUT_XTAL"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/STM32H7/3V3_USB"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/STM32H7/3V3_XSPI"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/BOOT0"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/ETH_CRS_DV"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/ETH_LED1"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/ETH_LED2"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/ETH_MDC"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/ETH_MDIO"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/ETH_PHY_RESET"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/ETH_REF_CLK"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/ETH_RXD0"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/ETH_RXD1"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/ETH_TXD0"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/ETH_TXD1"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/ETH_TX_EN"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/HSE_IN"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/HSE_OUT"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/JTDI"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/LSE_IN"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/LSE_OUT"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/STM32H7/NJTRST"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/NRST"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/PB10"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/PB13"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/PB14"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/PB15"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/PB2"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/PB5"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/PB6"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/PC0"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/PC13"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/PC2"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/PC3"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/PC6"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/PC7"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/PE0"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/PE1"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/PE2"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/PE3"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/PE4"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/PE5"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/PE6"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/PHY_RBIAS"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/PHY_RXER"
+      },
+      {
+        "netclass": "SIGNAL_PAIR",
+        "pattern": "/STM32H7/PHY_RXN"
+      },
+      {
+        "netclass": "SIGNAL_PAIR",
+        "pattern": "/STM32H7/PHY_RXP"
+      },
+      {
+        "netclass": "SIGNAL_PAIR",
+        "pattern": "/STM32H7/PHY_TXN"
+      },
+      {
+        "netclass": "SIGNAL_PAIR",
+        "pattern": "/STM32H7/PHY_TXP"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/STM32H7/PHY_VDDCR"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/PHY_XTAL1"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/PHY_XTAL2"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/PM0"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/PM1"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/PM13"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/PM2"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/PM3"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/PM5"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/PM6"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/PM8"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/PM9"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/PO0"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/PO1"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/PO5"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/PP7"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/RJ_LED_GREEN_A"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/RJ_LED_YELLOW_A"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/SWCLK"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/SWDIO"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/SWO"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/USB_CC1"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/USB_CC2"
+      },
+      {
+        "netclass": "SIGNAL_PAIR",
+        "pattern": "/STM32H7/USB_CONN_DM"
+      },
+      {
+        "netclass": "SIGNAL_PAIR",
+        "pattern": "/STM32H7/USB_CONN_DP"
+      },
+      {
+        "netclass": "SIGNAL_PAIR",
+        "pattern": "/STM32H7/USB_DM_ESD"
+      },
+      {
+        "netclass": "SIGNAL_PAIR",
+        "pattern": "/STM32H7/USB_DP_ESD"
+      },
+      {
+        "netclass": "SIGNAL_PAIR",
+        "pattern": "/STM32H7/USB_FS_DM"
+      },
+      {
+        "netclass": "SIGNAL_PAIR",
+        "pattern": "/STM32H7/USB_FS_DP"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/USB_SHIELD"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/STM32H7/USB_VBUS"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/USB_VBUS_SENSE"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/STM32H7/VBAT"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/STM32H7/VCAP1"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/STM32H7/VCAP2"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/STM32H7/VCAP34"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/STM32H7/VDDA"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/STM32H7/VREFP"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/THX8136/3V3_DVDD_PRE"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/THX8136/AB"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/THX8136/AG"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/THX8136/AR"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/THX8136/AVDD_FILT"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/THX8136/BLANK"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/THX8136/COMP"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/THX8136/DVDD_1V8"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/THX8136/FSADJ"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/THX8136/M2"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/THX8136/SYNC"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/THX8136/SYNC_T"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/THX8136/VREF"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/XCC1352R1F3RGZR/ANT_50OHM"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/XCC1352R1F3RGZR/ANT_MATCH_IN"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/XCC1352R1F3RGZR/DCDC_SW"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/XCC1352R1F3RGZR/DCOUPL"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/XCC1352R1F3RGZR/DIO_10"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/XCC1352R1F3RGZR/DIO_11"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/XCC1352R1F3RGZR/DIO_12"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/XCC1352R1F3RGZR/DIO_13"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/XCC1352R1F3RGZR/DIO_16"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/XCC1352R1F3RGZR/DIO_17"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/XCC1352R1F3RGZR/DIO_18"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/XCC1352R1F3RGZR/DIO_19"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/XCC1352R1F3RGZR/DIO_20"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/XCC1352R1F3RGZR/DIO_21"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/XCC1352R1F3RGZR/DIO_22"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/XCC1352R1F3RGZR/DIO_23"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/XCC1352R1F3RGZR/DIO_24"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/XCC1352R1F3RGZR/DIO_25"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/XCC1352R1F3RGZR/DIO_26"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/XCC1352R1F3RGZR/DIO_27"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/XCC1352R1F3RGZR/DIO_28"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/XCC1352R1F3RGZR/DIO_29"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/XCC1352R1F3RGZR/DIO_30"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/XCC1352R1F3RGZR/JTAG_TCKC"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/XCC1352R1F3RGZR/JTAG_TMSC"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/XCC1352R1F3RGZR/RESET_N"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/XCC1352R1F3RGZR/RF_2G4_UNBAL"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/XCC1352R1F3RGZR/RF_COMMON"
+      },
+      {
+        "netclass": "SIGNAL_PAIR",
+        "pattern": "/XCC1352R1F3RGZR/RF_N_2_4GHZ"
+      },
+      {
+        "netclass": "SIGNAL_PAIR",
+        "pattern": "/XCC1352R1F3RGZR/RF_N_SUB_1GHZ"
+      },
+      {
+        "netclass": "SIGNAL_PAIR",
+        "pattern": "/XCC1352R1F3RGZR/RF_P_2_4GHZ"
+      },
+      {
+        "netclass": "SIGNAL_PAIR",
+        "pattern": "/XCC1352R1F3RGZR/RF_P_SUB_1GHZ"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/XCC1352R1F3RGZR/RF_SUB1_IPC"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/XCC1352R1F3RGZR/RF_SUB1_SW"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "/XCC1352R1F3RGZR/RX_TX"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/XCC1352R1F3RGZR/VDDR"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/XCC1352R1F3RGZR/VDDR_RF"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/XCC1352R1F3RGZR/X48M_N"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "/XCC1352R1F3RGZR/X48M_P"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "GND"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "Net-(J17-CC1)"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "Net-(J17-CC2)"
+      },
+      {
+        "netclass": "SIGNAL_PAIR",
+        "pattern": "Net-(J17-D+-PadA6)"
+      },
+      {
+        "netclass": "SIGNAL_PAIR",
+        "pattern": "Net-(J17-D--PadA7)"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "Net-(J17-SHIELD)"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "Net-(J18-Pin_2)"
+      },
+      {
+        "netclass": "SIGNAL_PAIR",
+        "pattern": "Net-(R13-Pad1)"
+      },
+      {
+        "netclass": "SIGNAL_PAIR",
+        "pattern": "Net-(R14-Pad1)"
+      },
+      {
+        "netclass": "SIGNAL_PAIR",
+        "pattern": "Net-(U18-USB_D_N)"
+      },
+      {
+        "netclass": "SIGNAL_PAIR",
+        "pattern": "Net-(U18-USB_D_P)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "Net-(U18-VDD_USB)"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "Net-(U20-CH1)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(C11-Pad1)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(C11-Pad2)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(C12-Pad1)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(C12-Pad2)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(C13-Pad1)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(C13-Pad2)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(C14-Pad1)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(C14-Pad2)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(C15-Pad1)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(C15-Pad2)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(C16-Pad1)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(C16-Pad2)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(C17-Pad1)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(C17-Pad2)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(C18-Pad1)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(C18-Pad2)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(C19-Pad1)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(C19-Pad2)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(C20-Pad1)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(C20-Pad2)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(C21-Pad1)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(C21-Pad2)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(IC1-FSYNC-Pad7)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(IC1-RESV_1-Pad2)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(IC1-RESV_2-Pad3)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(IC1-RESV_3-Pad10)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(IC1-RESV_4-Pad11)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(J10-SBU1-PadA8)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(J10-SBU2-PadB8)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(J11-Pin_7-Pad7)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(J16-Pin_7-Pad7)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(J17-SBU1-PadA8)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(J17-SBU2-PadB8)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(J19-Pad3)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(J20-SBU1-PadA8)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(J20-SBU2-PadB8)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(J21-NC-Pad7)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(J6-Pin_7-Pad7)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(J7-Pin_1-Pad1)"
+      },
+      {
+        "netclass": "SIGNAL_6MIL",
+        "pattern": "unconnected-(J7-Pin_2-Pad2)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(R10-Pad1)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(R10-Pad2)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(U12-CBUS0-Pad15)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(U12-CBUS1-Pad14)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(U12-CBUS2-Pad7)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(U12-CBUS3-Pad16)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(U12-CTS-Pad6)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(U12-RESET-Pad11)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(U12-RTS-Pad2)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(U13-GPADC1-PadM6)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(U13-GPADC2-PadL6)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(U13-OSC_CLK_OUT-PadA7)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(U13-SPIA_CLK-PadD10)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(U13-SPIA_CS0_N-PadD11)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(U13-VPP-PadA8)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(U16-GND-Pad1)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(U19-NC-Pad4)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(U21-NIC-Pad10)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(U21-NIC-Pad7)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(U21-NIC-Pad8)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(U21-NIC-Pad9)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(U25-GND-Pad2)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(U25-VBUS-Pad5)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(U3-FB-Pad27)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(U4-QSPI_SCLK-Pad71)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(U4-QSPI_SD0-Pad72)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(U4-QSPI_SD1-Pad74)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(U4-QSPI_SD2-Pad73)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(U4-QSPI_SD3-Pad70)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(U4-QSPI_SS-Pad75)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(U5-DIO_7-Pad12)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(U5-X32K_Q1-Pad6)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(U5-X32K_Q2-Pad7)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(U7-NC-Pad4)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(Y2-Pad1)"
+      },
+      {
+        "netclass": "IGNORE",
+        "pattern": "unconnected-(Y2-Pad2)"
+      }
+    ]
+  },
+  "pcbnew": {
+    "last_paths": {
+      "gencad": "",
+      "idf": "",
+      "netlist": "",
+      "plot": "",
+      "pos_files": "",
+      "specctra_dsn": "",
+      "step": "",
+      "svg": "",
+      "vrml": ""
+    },
+    "page_layout_descr_file": ""
+  },
+  "schematic": {
+    "legacy_lib_dir": "",
+    "legacy_lib_list": []
+  },
+  "sheets": [],
+  "text_variables": {}
+}

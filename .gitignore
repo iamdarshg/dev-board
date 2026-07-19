@@ -1,0 +1,11 @@
+# KiCad local state and automatic backups
+*.kicad_prl
+*.kicad_pcb-bak
+*.kicad_sch-bak
+*-backups/
+
+# Local caches
+__pycache__/
+*.py[cod]
+Thumbs.db
+.DS_Store
