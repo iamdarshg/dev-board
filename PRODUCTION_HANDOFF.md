@@ -8,8 +8,8 @@
 - DRC report: `dev-real-production-drc.rpt`
 - Detailed pair audit: `dev-real-production-length-audit.txt`
 
-The final KiCad 9 DRC result is **0 unconnected pads** and **1 remaining error** (see
-"L1 inductor" below) at error severity.
+The final KiCad 9 DRC result is **0 unconnected pads** and **0 errors** at error
+severity.
 
 **Fab outputs are stale as of the L1 change below.** `dev-real-production-fab/`
 (gerbers, drill files, `-positions.csv`, `-netlist.xml`, `-drc.rpt`, `.zip`) and
@@ -34,14 +34,40 @@ committing to fab). COUT2 (the buck output cap, itself still a
 ~12 local nets crossing the new footprint's footprint were rerouted and
 verified against real `kicad-cli pcb drc`.
 
-**Residual, not fixed:** `courtyards_overlap` between C5 and COUT2. COUT2 is
-now sandwiched in a channel only ~1.45 mm tall between C5 and L1's new body —
-too narrow for COUT2's ~1.5–3.0 mm footprint in either orientation. This is a
-manufacturing/assembly-keepout warning, not a short or connectivity fault.
-Resolving it cleanly needs either relocating COUT2 further away (with a full
-reroute of its two pads) or finalizing COUT2's own real part (it's still a
-placeholder) with a smaller footprint — left for interactive placement in
-KiCad rather than forced here.
+**Fixed:** the `courtyards_overlap` between C5 and COUT2 noted above has been
+resolved. COUT2 could not be moved (the channel between C5 and L1's new body
+is too narrow for COUT2's footprint in any orientation, and COUT2's own
+routing was already verified/stable), so C5 (100 nF, `C_0603_1608Metric`) was
+relocated instead, from (68.5, 59.5) mm to (67.7, 57.75) mm — clear of both
+COUT2's and C2's courtyards, with a real `kicad-cli pcb drc` clean pass
+(0 violations / 0 unconnected). Its two local stub nets were rerouted to the
+new pad positions on the Top Layer: `/Power/RIPPLE_INJ` (pad at
+(66.925, 57.75)) reconnects with a single straight segment to its existing
+run at (65.674999, 57.449999); `/Power/FB` (pad at (68.475, 57.75)) is
+routed around an `/Power/EXTVDD` track that crosses the direct path, via
+waypoints (68.6, 58.0) → (70.4, 58.0) → (70.8, 58.4) → (71.0, 58.4) →
+(71.6, 59.0) → (71.0, 59.6) → (69.2, 59.6), rejoining the existing FB run at
+(69.3, 59.524999). Six duplicate/redundant `/Power/FB` stub segments left
+over from earlier routing passes (all at the same old coordinates) were
+deduped down to the single new route in the process.
+
+## High-current trace widths
+
+The `/Power/SW` and `+3V3` segments added/touched by the L1 reroute were
+widened from their as-routed 0.1–0.2 mm to 0.2–0.4 mm (clearance-checked
+per segment, matching this board's existing convention for local
+high-current power hops — see the `+3V3`/`/Power/SW` segments elsewhere on
+the board already at 0.4 mm). A board-wide sweep of the other plausible
+current-carrying nets (`/Power/VIN`, `/Power/SVIN`, `/Power/PVDD`,
+`/Power/EXTVDD`, the USB VBUS nets) found them already consistent with this
+convention (0.18–0.35 mm), with one exception: `/IWRL6432BD/USB_VBUS` had
+~7.8 mm routed at only 0.15 mm across a few inner-layer segments. Five of
+those segments have been widened to 0.2–0.3 mm. Two short segments — a
+4.64 mm run on Power Layer 2 near (52.7–57.2, 27.1–28.0) and a 3.19 mm run
+on Ground Layer 1 near (57.5–59.5, 28.3–30.7) — remain at 0.15 mm because a
+neighboring `/Power/1V8` via sits close enough that widening them trips
+real DRC clearance; widening those two needs either moving that via or
+re-routing around it, left for interactive follow-up.
 
 ## ADC/DAC test breakout
 
@@ -73,6 +99,11 @@ Key routed mismatches:
 | FTDI USB | 16.235 mm |
 
 The dense USB routes were not given forced serpentine sections because no collision-free tuning corridor was available. The STM32, RP2350, and FTDI paths are identified as full-speed USB in this design and are retained as routed. Confirm the MM8108 interface speed before fabrication: if it operates at USB high speed, its 7.819 mm residual mismatch should be rerouted against the module's timing requirement.
+
+The Ethernet TX pair's 3.723 mm mismatch is not called out above with a
+verdict: at typical FR-4 propagation velocity that's roughly 25 ps of skew,
+under common 1000BASE-T intra-pair skew budgets (~50 ps) but close enough to
+the boundary to flag for review rather than treat as automatically fine.
 
 ## Fabricator instructions
 
