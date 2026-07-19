@@ -3312,7 +3312,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Inductor_SMD:L_Kyocera_LMLP07C7_7.0x6.9mm"
+		(property "Footprint" "Inductor_SMD:L_Kyocera_LMLP07C7D_7.3x6.6mm"
 			(at 157.21 66.67 0)
 			(effects
 				(font

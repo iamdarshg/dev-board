@@ -1,13 +1,13 @@
-(footprint "L_Kyocera_LMLP07C7_7.0x6.9mm"
+(footprint "L_Kyocera_LMLP07C7D_7.3x6.6mm"
 	(version 20240108)
 	(generator "hand")
 	(generator_version "9.0")
 	(layer "F.Cu")
-	(descr "KYOCERA AVX LMLP07C7 series metal-alloy shielded power inductor, 7.0 x 6.9 mm body, 2 terminals. Land pattern built from LMLP07 series dimensions (pads 2.4 x 6.0 mm, 4.6 mm centre-to-centre, 2.2 mm gap) - VERIFY against the LMLP07C7 datasheet land drawing before fabrication. For LMLP07C7M1R0DTAS (1 uH, Idc 15 A, Isat 20 A).")
-	(tags "inductor power LMLP07 Kyocera AVX high-current")
+	(descr "KYOCERA AVX LMLP Series Style D, case 07C7 (LMLP07C7M1R0DTAS): body 7.3x6.6mm (B x A), max height 4.8mm (C). Recommended land pattern per datasheets.kyocera-avx.com/LMLPD.pdf DIMENSIONS table: pad 2.95 x 3.5mm (F x H), 2.5mm inner gap (G), 5.45mm pad pitch. 1uH +/-20%, DCR 6.1/6.5mOhm typ/max, IDC 15A typ, Isat 20A typ.")
+	(tags "inductor power LMLP07C7 Kyocera AVX high-current buck")
 	(attr smd)
 	(property "Reference" "REF**"
-		(at 0 -4.6 0)
+		(at 0 -4.4 0)
 		(layer "F.SilkS")
 		(effects
 			(font
@@ -16,8 +16,8 @@
 			)
 		)
 	)
-	(property "Value" "L_Kyocera_LMLP07C7_7.0x6.9mm"
-		(at 0 4.6 0)
+	(property "Value" "L_Kyocera_LMLP07C7D_7.3x6.6mm"
+		(at 0 4.4 0)
 		(layer "F.Fab")
 		(effects
 			(font
@@ -26,7 +26,7 @@
 			)
 		)
 	)
-	(property "Datasheet" "https://datasheets.kyocera-avx.com/LMLPC.pdf"
+	(property "Datasheet" "https://datasheets.kyocera-avx.com/LMLPD.pdf"
 		(at 0 0 0)
 		(layer "F.Fab")
 		(hide yes)
@@ -37,7 +37,7 @@
 			)
 		)
 	)
-	(property "Description" "1 uH power inductor, Idc 15 A, Isat 20 A, DCR ~6.1 mOhm"
+	(property "Description" "1uH power inductor, IDC 15A typ, Isat 20A typ, DCR 6.1/6.5mOhm typ/max"
 		(at 0 0 0)
 		(layer "F.Fab")
 		(hide yes)
@@ -59,8 +59,8 @@
 		)
 	)
 	(fp_rect
-		(start -3.5 -3.45)
-		(end 3.5 3.45)
+		(start -3.65 -3.3)
+		(end 3.65 3.3)
 		(stroke
 			(width 0.1)
 			(type solid)
@@ -69,8 +69,8 @@
 		(layer "F.Fab")
 	)
 	(fp_rect
-		(start -3.75 -3.7)
-		(end 3.75 3.7)
+		(start -3.9 -3.55)
+		(end 3.9 3.55)
 		(stroke
 			(width 0.05)
 			(type solid)
@@ -79,8 +79,8 @@
 		(layer "F.CrtYd")
 	)
 	(fp_line
-		(start -3.5 -3.45)
-		(end -1.2 -3.45)
+		(start -3.65 -3.3)
+		(end -1.475 -3.3)
 		(stroke
 			(width 0.12)
 			(type solid)
@@ -88,8 +88,8 @@
 		(layer "F.SilkS")
 	)
 	(fp_line
-		(start 1.2 -3.45)
-		(end 3.5 -3.45)
+		(start 1.475 -3.3)
+		(end 3.65 -3.3)
 		(stroke
 			(width 0.12)
 			(type solid)
@@ -97,8 +97,8 @@
 		(layer "F.SilkS")
 	)
 	(fp_line
-		(start -3.5 3.45)
-		(end -1.2 3.45)
+		(start -3.65 3.3)
+		(end -1.475 3.3)
 		(stroke
 			(width 0.12)
 			(type solid)
@@ -106,8 +106,8 @@
 		(layer "F.SilkS")
 	)
 	(fp_line
-		(start 1.2 3.45)
-		(end 3.5 3.45)
+		(start 1.475 3.3)
+		(end 3.65 3.3)
 		(stroke
 			(width 0.12)
 			(type solid)
@@ -115,16 +115,16 @@
 		(layer "F.SilkS")
 	)
 	(pad "1" smd roundrect
-		(at -2.3 0)
-		(size 2.4 6)
+		(at -2.725 0)
+		(size 2.95 3.5)
 		(layers "F.Cu" "F.Mask" "F.Paste")
 		(roundrect_rratio 0.1)
 		(pinfunction "1")
 		(pintype "passive")
 	)
 	(pad "2" smd roundrect
-		(at 2.3 0)
-		(size 2.4 6)
+		(at 2.725 0)
+		(size 2.95 3.5)
 		(layers "F.Cu" "F.Mask" "F.Paste")
 		(roundrect_rratio 0.1)
 		(pinfunction "2")
