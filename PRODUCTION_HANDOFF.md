@@ -8,7 +8,40 @@
 - DRC report: `dev-real-production-drc.rpt`
 - Detailed pair audit: `dev-real-production-length-audit.txt`
 
-The final KiCad 9 DRC result is **0 violations, 0 unconnected pads, and 0 footprint errors** at error severity.
+The final KiCad 9 DRC result is **0 unconnected pads** and **1 remaining error** (see
+"L1 inductor" below) at error severity.
+
+**Fab outputs are stale as of the L1 change below.** `dev-real-production-fab/`
+(gerbers, drill files, `-positions.csv`, `-netlist.xml`, `-drc.rpt`, `.zip`) and
+`dev-real-production-length-audit.txt` were generated before L1 was replaced and
+rerouted, and were intentionally **not** regenerated here (kicad-cli's default
+export job doesn't reproduce this project's curated gerber/drill file set —
+e.g. the PTH/NPTH split — without its saved plot-job settings). Before sending
+to a fabricator: open `dev-real-production.kicad_pro` in KiCad 9 and re-run
+**File → Fabrication Outputs** (or the project's existing plot job) to
+regenerate the whole `dev-real-production-fab/` package and `.zip` from the
+current board.
+
+## L1 inductor (1 µH buck output, `/Power/SW` → `+3V3`)
+
+L1 was a placeholder (`L_TODO_SELECT_1uH_15Aplus`, physically a 0603 footprint)
+and is now **KYOCERA AVX LMLP07C7M1R0DTAS** (1 µH ±20 %, DCR 6.1/6.5 mΩ typ/max,
+IDC 15 A typ, Isat 20 A typ) on footprint `L_Kyocera_LMLP07C7D_7.3x6.6mm`
+(land pattern built from the LMLP07 series dimensional table in
+`datasheets.kyocera-avx.com/LMLPD.pdf` — verify against that drawing before
+committing to fab). COUT2 (the buck output cap, itself still a
+`C_TODO_SELECT_100uF` placeholder) was nudged ~1.85 mm to make room, and the
+~12 local nets crossing the new footprint's footprint were rerouted and
+verified against real `kicad-cli pcb drc`.
+
+**Residual, not fixed:** `courtyards_overlap` between C5 and COUT2. COUT2 is
+now sandwiched in a channel only ~1.45 mm tall between C5 and L1's new body —
+too narrow for COUT2's ~1.5–3.0 mm footprint in either orientation. This is a
+manufacturing/assembly-keepout warning, not a short or connectivity fault.
+Resolving it cleanly needs either relocating COUT2 further away (with a full
+reroute of its two pads) or finalizing COUT2's own real part (it's still a
+placeholder) with a smaller footprint — left for interactive placement in
+KiCad rather than forced here.
 
 ## ADC/DAC test breakout
 
