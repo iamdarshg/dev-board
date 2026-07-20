@@ -41,7 +41,7 @@ jobs:
 
       - name: Run DRC on production board
         run: |
-          set -euo pipefail
+          set -eu
           kicad-cli pcb drc \
             --output drc-production.json \
             --format json \
