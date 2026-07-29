@@ -21,13 +21,10 @@ jobs:
           from pathlib import Path
           import re, sys
 
-          board = Path("dev-real-production.kicad_pcb").read_text()
-          bad = []
-          for match in re.finditer(r"\\(via(?:(?!\\n\\s*\\(via).)*?\\(drill\\s+([0-9.]+)\\)", board, re.S):
-              drill = float(match.group(1))
-              if drill < 0.15:
-                  bad.append(drill)
-          print(f"undersized PTH vias: {len(bad)}; sizes: {sorted(set(bad))}")
+          drills = Path("dev-real-production-fab/dev-real-production-PTH.drl").read_text()
+          sizes = [float(v) for v in re.findall(r"^T\\d+C([0-9.]+)$", drills, re.M)]
+          bad = [size for size in sizes if size < 0.15]
+          print(f"PTH tool sizes: {sizes}")
           if bad:
-              sys.exit("PCBWay requires >= 0.15 mm mechanical/PTH drill")
+              sys.exit(f"PCBWay requires >= 0.15 mm mechanical/PTH drill; found {bad}")
           PY
