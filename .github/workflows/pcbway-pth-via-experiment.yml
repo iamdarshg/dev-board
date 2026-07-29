@@ -142,17 +142,16 @@ jobs:
           PY
       - name: Download stable Freerouting CLI
         run: |
-          JAVA_BIN=""
-          for candidate in $(find /__t -type f -path '*/bin/java' | sort -V); do
-            if "$candidate" -version 2>&1 | grep -q 'version "25'; then
-              JAVA_BIN="$candidate"
-              break
-            fi
-          done
-          if [ -z "$JAVA_BIN" ]; then
-            echo "A Java 25 runtime was not mounted in the GitHub runner tool cache." >&2
-            exit 1
-          fi
+          python3 - <<'PY'
+          from pathlib import Path
+          from urllib.request import urlopen
+          url = "https://api.adoptium.net/v3/binary/latest/25/ga/linux/x64/jre/hotspot/normal/eclipse"
+          Path("temurin-25-jre.tar.gz").write_bytes(urlopen(url, timeout=120).read())
+          PY
+          mkdir -p temurin-25
+          tar -xzf temurin-25-jre.tar.gz -C temurin-25 --strip-components=1
+          JAVA_BIN="$PWD/temurin-25/bin/java"
+          test -x "$JAVA_BIN"
           echo "JAVA_BIN=$JAVA_BIN" >> "$GITHUB_ENV"
           "$JAVA_BIN" -version
           python3 - <<'PY'
