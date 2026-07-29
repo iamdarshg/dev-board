@@ -10,6 +10,7 @@ permissions:
 jobs:
   pcbway-minimum-pth-drill:
     runs-on: ubuntu-latest
+    timeout-minutes: 145
     container:
       image: kicad/kicad:9.0
       options: --user root
@@ -170,7 +171,7 @@ jobs:
         id: route
         continue-on-error: true
         run: |
-          timeout 360s "$JAVA_BIN" -jar freerouting-2.2.4.jar             --gui.enabled=false --user_data_path=freerouting-user-data             -de pcbway-reroute-input.dsn -do pcbway-rerouted.ses             -mp 12 -mt 2 -dct 1 -da             --logging.console.level=INFO             | tee freerouting-route.log
+          timeout -k 30s 7200s "$JAVA_BIN" -jar freerouting-2.2.4.jar             --gui.enabled=false --user_data_path=freerouting-user-data             -de pcbway-reroute-input.dsn -do pcbway-rerouted.ses             -mp 200 -mt 2 -dct 1 -da             --logging.console.level=INFO             | tee freerouting-route.log
       - name: Import the route trial into a disposable KiCad board
         id: import_route
         if: always() && steps.route.outcome == 'success'
