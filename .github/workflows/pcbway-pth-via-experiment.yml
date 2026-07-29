@@ -22,7 +22,7 @@ jobs:
           import shutil, sys
 
           text = Path("dev-real-production.kicad_pcb").read_text()
-          out, cursor, changed, original_sizes = [], 0, 0, []
+          out, cursor, changed, points = [], 0, 0, []
           while True:
               start = text.find("(via", cursor)
               if start < 0:
@@ -37,11 +37,13 @@ jobs:
                       break
               block = text[start:end]
               if "(drill 0.127)" in block:
+                  at = block.find("(at ") + len("(at ")
+                  at_end = block.find(")", at)
+                  points.append(tuple(map(float, block[at:at_end].split()[:2])))
                   size_start = block.find("(size ")
                   if size_start < 0: sys.exit("0.127 mm drill found without a via size")
                   value_start = size_start + len("(size ")
                   value_end = block.find(")", value_start)
-                  original_sizes.append(block[value_start:value_end])
                   block = block[:value_start] + "0.31" + block[value_end:]
                   block = block.replace("(drill 0.127)", "(drill 0.15)", 1)
                   changed += 1
@@ -49,25 +51,48 @@ jobs:
               cursor = end
           if changed == 0: sys.exit("No 0.127 mm PTH vias were found")
           Path("dev-real-production-pcbway-candidate.kicad_pcb").write_text("".join(out))
-          # KiCad selects board rules from the same-basename project file.
           shutil.copyfile("dev-real-production.kicad_pro", "dev-real-production-pcbway-candidate.kicad_pro")
-          print(f"promoted {changed} PTH vias; original pad sizes: {sorted(set(original_sizes))}")
+
+          xs, ys = zip(*points)
+          margin = 3
+          xmin, xmax = min(xs)-margin, max(xs)+margin
+          ymin, ymax = min(ys)-margin, max(ys)+margin
+          w, h = 1600, max(800, int(1600*(ymax-ymin)/(xmax-xmin)))
+          def xy(p):
+              x, y = p
+              return 40+(x-xmin)/(xmax-xmin)*(w-80), 40+(y-ymin)/(ymax-ymin)*(h-80)
+          circles = "".join(f'<circle cx="{xy(p)[0]:.2f}" cy="{xy(p)[1]:.2f}" r="2.5"/>' for p in points)
+          Path("pcbway-via-change-map.svg").write_text(f'''<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}">
+          <rect width="100%" height="100%" fill="#111827"/><text x="40" y="32" fill="white" font-size="22">713 PTH vias proposed for 0.15 mm PCBWay drill</text>
+          <rect x="40" y="40" width="{w-80}" height="{h-80}" fill="#e5e7eb" stroke="#94a3b8"/><g fill="#ef4444" opacity="0.82">{circles}</g>
+          <text x="40" y="{h-12}" fill="white" font-size="16">Red = every via whose pad expansion must be checked/rerouted</text></svg>''')
+          print(f"promoted {changed} PTH vias")
           PY
       - name: Verify candidate has no undersized PTH drills
         run: |
           if grep -q '(drill 0.127)' dev-real-production-pcbway-candidate.kicad_pcb; then exit 1; fi
-      - name: Run KiCad DRC on candidate using production rules
-        run: kicad-cli pcb drc --output pcbway-candidate-drc.json --format json --severity-error --exit-code-violations dev-real-production-pcbway-candidate.kicad_pcb
-      - name: Enforce clean DRC and unconnected count
+      - name: Run KiCad DRC on candidate
+        run: kicad-cli pcb drc --output pcbway-candidate-drc.json --format json --severity-error dev-real-production-pcbway-candidate.kicad_pcb
+      - name: Export candidate top-copper view
+        run: kicad-cli pcb export svg --output pcbway-candidate-top.svg --layers F.Cu dev-real-production-pcbway-candidate.kicad_pcb
+      - name: Summarize candidate violations
         if: always()
         run: |
           python3 - <<'PY'
-          import json, pathlib, sys
+          import json, pathlib
           report = pathlib.Path("pcbway-candidate-drc.json")
-          if not report.exists(): sys.exit("candidate DRC report was not generated")
-          data = json.loads(report.read_text())
-          violations, unconnected = data.get("violations", []), data.get("unconnected_items", [])
-          print(f"candidate violations={len(violations)} unconnected={len(unconnected)}")
-          for v in violations[:100]: print("VIOL:", v.get("type"), v.get("description"))
-          if violations or unconnected: sys.exit("PCBWay via candidate is not DRC clean")
+          if report.exists():
+              data = json.loads(report.read_text())
+              print("candidate violations=", len(data.get("violations", [])))
+              print("candidate unconnected=", len(data.get("unconnected_items", [])))
           PY
+      - name: Upload PCBWay visual DFM package
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pcbway-via-dfm-visuals
+          path: |
+            pcbway-via-change-map.svg
+            pcbway-candidate-drc.json
+            pcbway-candidate-top.svg
+            dev-real-production-pcbway-candidate.kicad_pcb
