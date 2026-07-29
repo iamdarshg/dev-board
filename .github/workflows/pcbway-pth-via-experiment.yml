@@ -21,51 +21,53 @@ jobs:
           from pathlib import Path
           import sys
 
-          source = Path("dev-real-production.kicad_pcb")
-          candidate = Path("dev-real-production-pcbway-candidate.kicad_pcb")
-          text = source.read_text()
-          drill_count = text.count("(drill 0.127)")
-          size_count = text.count("(size 0.254)")
-          if drill_count == 0:
-              sys.exit("No 0.127 mm PTH drills were found")
-          if size_count < drill_count:
-              sys.exit(f"Cannot safely promote: {drill_count} drills but only {size_count} matching via pads")
-
-          # Existing 0.127 mm drills are the 0.254 mm PTH-via class. 0.31 mm
-          # pads leave a 0.08 mm annular ring with the PCBWay 0.15 mm drill.
-          updated = text.replace("(size 0.254)", "(size 0.31)")
-          updated = updated.replace("(drill 0.127)", "(drill 0.15)")
-          candidate.write_text(updated)
-          print(f"promoted {drill_count} PTH via drills; expanded {size_count} 0.254 mm via pads")
+          text = Path("dev-real-production.kicad_pcb").read_text()
+          out, cursor, changed, original_sizes = [], 0, 0, []
+          while True:
+              start = text.find("(via", cursor)
+              if start < 0:
+                  out.append(text[cursor:])
+                  break
+              out.append(text[cursor:start])
+              depth, end = 0, start
+              while end < len(text):
+                  depth += (text[end] == "(") - (text[end] == ")")
+                  end += 1
+                  if depth == 0:
+                      break
+              block = text[start:end]
+              if "(drill 0.127)" in block:
+                  size_start = block.find("(size ")
+                  if size_start < 0:
+                      sys.exit("0.127 mm drill found without a via size")
+                  value_start = size_start + len("(size ")
+                  value_end = block.find(")", value_start)
+                  original_sizes.append(block[value_start:value_end])
+                  block = block[:value_start] + "0.31" + block[value_end:]
+                  block = block.replace("(drill 0.127)", "(drill 0.15)", 1)
+                  changed += 1
+              out.append(block)
+              cursor = end
+          if changed == 0:
+              sys.exit("No 0.127 mm PTH vias were found")
+          Path("dev-real-production-pcbway-candidate.kicad_pcb").write_text("".join(out))
+          print(f"promoted {changed} PTH vias; original pad sizes: {sorted(set(original_sizes))}")
           PY
       - name: Verify candidate has no undersized PTH drills
         run: |
-          if grep -q '(drill 0.127)' dev-real-production-pcbway-candidate.kicad_pcb; then
-            exit 1
-          fi
+          if grep -q '(drill 0.127)' dev-real-production-pcbway-candidate.kicad_pcb; then exit 1; fi
       - name: Run KiCad DRC on candidate
-        run: |
-          kicad-cli pcb drc --output pcbway-candidate-drc.json --format json --severity-error --exit-code-violations dev-real-production-pcbway-candidate.kicad_pcb
+        run: kicad-cli pcb drc --output pcbway-candidate-drc.json --format json --severity-error --exit-code-violations dev-real-production-pcbway-candidate.kicad_pcb
       - name: Enforce clean DRC and unconnected count
         if: always()
         run: |
           python3 - <<'PY'
           import json, pathlib, sys
           report = pathlib.Path("pcbway-candidate-drc.json")
-          if not report.exists():
-              sys.exit("candidate DRC report was not generated")
+          if not report.exists(): sys.exit("candidate DRC report was not generated")
           data = json.loads(report.read_text())
-          violations = data.get("violations", [])
-          unconnected = data.get("unconnected_items", [])
+          violations, unconnected = data.get("violations", []), data.get("unconnected_items", [])
           print(f"candidate violations={len(violations)} unconnected={len(unconnected)}")
-          for violation in violations[:100]:
-              print("VIOL:", violation.get("type"), violation.get("description"))
-          if violations or unconnected:
-              sys.exit("PCBWay via candidate is not DRC clean")
+          for v in violations[:100]: print("VIOL:", v.get("type"), v.get("description"))
+          if violations or unconnected: sys.exit("PCBWay via candidate is not DRC clean")
           PY
-      - name: Upload candidate DRC report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: pcbway-candidate-drc
-          path: pcbway-candidate-drc.json
