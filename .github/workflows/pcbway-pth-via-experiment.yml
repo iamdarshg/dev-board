@@ -215,3 +215,11 @@ jobs:
             pcbway-candidate-drc.json
             pcbway-candidate-top.svg
             dev-real-production-pcbway-candidate.kicad_pcb
+            reroute-input-summary.json
+            pcbway-reroute-input.kicad_pcb
+            pcbway-reroute-input.dsn
+            freerouting-route.log
+            pcbway-rerouted.ses
+            pcbway-rerouted.kicad_pcb
+            pcbway-rerouted-drc.json
+            pcbway-rerouted-top.svg
