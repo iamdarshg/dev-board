@@ -71,6 +71,19 @@ jobs:
       - name: Verify candidate has no undersized PTH drills
         run: |
           if grep -q '(drill 0.127)' dev-real-production-pcbway-candidate.kicad_pcb; then exit 1; fi
+      - name: Probe headless Specctra bridge for the reroute trial
+        run: |
+          python3 - <<'PY'
+          try:
+              import pcbnew
+          except Exception as exc:
+              print(f"pcbnew Python module unavailable: {exc}")
+              raise SystemExit(0)
+          names = [name for name in dir(pcbnew) if "Specctra" in name or "SPECCTRA" in name]
+          print("Specctra API candidates:", names)
+          board = pcbnew.LoadBoard("dev-real-production-pcbway-candidate.kicad_pcb")
+          print("board loaded:", board.GetFileName(), "tracks:", len(list(board.GetTracks())))
+          PY
       - name: Run KiCad DRC on candidate
         run: kicad-cli pcb drc --output pcbway-candidate-drc.json --format json --severity-error dev-real-production-pcbway-candidate.kicad_pcb
       - name: Export candidate top-copper view
