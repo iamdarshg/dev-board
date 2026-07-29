@@ -19,7 +19,7 @@ jobs:
         run: |
           python3 - <<'PY'
           from pathlib import Path
-          import sys
+          import shutil, sys
 
           text = Path("dev-real-production.kicad_pcb").read_text()
           out, cursor, changed, original_sizes = [], 0, 0, []
@@ -38,8 +38,7 @@ jobs:
               block = text[start:end]
               if "(drill 0.127)" in block:
                   size_start = block.find("(size ")
-                  if size_start < 0:
-                      sys.exit("0.127 mm drill found without a via size")
+                  if size_start < 0: sys.exit("0.127 mm drill found without a via size")
                   value_start = size_start + len("(size ")
                   value_end = block.find(")", value_start)
                   original_sizes.append(block[value_start:value_end])
@@ -48,15 +47,16 @@ jobs:
                   changed += 1
               out.append(block)
               cursor = end
-          if changed == 0:
-              sys.exit("No 0.127 mm PTH vias were found")
+          if changed == 0: sys.exit("No 0.127 mm PTH vias were found")
           Path("dev-real-production-pcbway-candidate.kicad_pcb").write_text("".join(out))
+          # KiCad selects board rules from the same-basename project file.
+          shutil.copyfile("dev-real-production.kicad_pro", "dev-real-production-pcbway-candidate.kicad_pro")
           print(f"promoted {changed} PTH vias; original pad sizes: {sorted(set(original_sizes))}")
           PY
       - name: Verify candidate has no undersized PTH drills
         run: |
           if grep -q '(drill 0.127)' dev-real-production-pcbway-candidate.kicad_pcb; then exit 1; fi
-      - name: Run KiCad DRC on candidate
+      - name: Run KiCad DRC on candidate using production rules
         run: kicad-cli pcb drc --output pcbway-candidate-drc.json --format json --severity-error --exit-code-violations dev-real-production-pcbway-candidate.kicad_pcb
       - name: Enforce clean DRC and unconnected count
         if: always()
