@@ -146,7 +146,9 @@ jobs:
           from pathlib import Path
           from urllib.request import urlopen
           url = "https://api.adoptium.net/v3/binary/latest/25/ga/linux/x64/jre/hotspot/normal/eclipse"
-          Path("temurin-25-jre.tar.gz").write_bytes(urlopen(url, timeout=120).read())
+          from urllib.request import Request
+          request = Request(url, headers={"User-Agent": "dev-board-DFM-route-trial/1.0"})
+          Path("temurin-25-jre.tar.gz").write_bytes(urlopen(request, timeout=120).read())
           PY
           mkdir -p temurin-25
           tar -xzf temurin-25-jre.tar.gz -C temurin-25 --strip-components=1
