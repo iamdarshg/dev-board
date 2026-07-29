@@ -1,0 +1,33 @@
+name: PCBWay PTH-via experiment
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  pcbway-minimum-pth-drill:
+    runs-on: ubuntu-latest
+    container:
+      image: kicad/kicad:9.0
+      options: --user root
+    steps:
+      - uses: actions/checkout@v4
+      - name: Enforce PCBWay mechanical PTH drill minimum
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re, sys
+
+          board = Path("dev-real-production.kicad_pcb").read_text()
+          bad = []
+          for match in re.finditer(r"\\(via(?:(?!\\n\\s*\\(via).)*?\\(drill\\s+([0-9.]+)\\)", board, re.S):
+              drill = float(match.group(1))
+              if drill < 0.15:
+                  bad.append(drill)
+          print(f"undersized PTH vias: {len(bad)}; sizes: {sorted(set(bad))}")
+          if bad:
+              sys.exit("PCBWay requires >= 0.15 mm mechanical/PTH drill")
+          PY
