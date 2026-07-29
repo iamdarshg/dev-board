@@ -19,36 +19,33 @@ jobs:
         run: |
           python3 - <<'PY'
           from pathlib import Path
-          import re, sys
+          import sys
 
           source = Path("dev-real-production.kicad_pcb")
           candidate = Path("dev-real-production-pcbway-candidate.kicad_pcb")
           text = source.read_text()
+          drill_count = text.count("(drill 0.127)")
+          size_count = text.count("(size 0.254)")
+          if drill_count == 0:
+              sys.exit("No 0.127 mm PTH drills were found")
+          if size_count < drill_count:
+              sys.exit(f"Cannot safely promote: {drill_count} drills but only {size_count} matching via pads")
 
-          # Promote only existing 0.254/0.127 through-vias. 0.31 mm pad with
-          # 0.15 mm drill leaves 0.08 mm annular ring, above PCBWay HDI's 3 mil floor.
-          pattern = r"(\\(via\\s+\\(at\\s+[^)]*\\)\\s+\\(size\\s+)0\\.254(\\)\\s+\\(drill\\s+)0\\.127(\\))"
-          updated, replacements = re.subn(pattern, r"\\g<1>0.31\\g<2>0.15\\g<3>", text)
-
-          if replacements == 0:
-              sys.exit("No 0.254/0.127 PTH vias were found to promote")
+          # Existing 0.127 mm drills are the 0.254 mm PTH-via class. 0.31 mm
+          # pads leave a 0.08 mm annular ring with the PCBWay 0.15 mm drill.
+          updated = text.replace("(size 0.254)", "(size 0.31)")
+          updated = updated.replace("(drill 0.127)", "(drill 0.15)")
           candidate.write_text(updated)
-          print(f"promoted {replacements} PTH vias to 0.31/0.15 mm")
+          print(f"promoted {drill_count} PTH via drills; expanded {size_count} 0.254 mm via pads")
           PY
-      - name: Verify candidate has no 0.127 mm PTH via drills
+      - name: Verify candidate has no undersized PTH drills
         run: |
           if grep -q '(drill 0.127)' dev-real-production-pcbway-candidate.kicad_pcb; then
-            echo "0.127 mm drills remain in candidate"
             exit 1
           fi
       - name: Run KiCad DRC on candidate
         run: |
-          kicad-cli pcb drc \
-            --output pcbway-candidate-drc.json \
-            --format json \
-            --severity-error \
-            --exit-code-violations \
-            dev-real-production-pcbway-candidate.kicad_pcb
+          kicad-cli pcb drc --output pcbway-candidate-drc.json --format json --severity-error --exit-code-violations dev-real-production-pcbway-candidate.kicad_pcb
       - name: Enforce clean DRC and unconnected count
         if: always()
         run: |
