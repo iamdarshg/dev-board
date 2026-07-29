@@ -22,7 +22,7 @@ jobs:
           import re, sys
 
           drills = Path("dev-real-production-fab/dev-real-production-PTH.drl").read_text()
-          sizes = [float(v) for v in re.findall(r"^T\\d+C([0-9.]+)$", drills, re.M)]
+          sizes = [float(v) for v in re.findall(r"^T\d+C([0-9.]+)$", drills, re.M)]
           bad = [size for size in sizes if size < 0.15]
           print(f"PTH tool sizes: {sizes}")
           if bad:
