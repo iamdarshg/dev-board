@@ -86,6 +86,104 @@ jobs:
           PY
       - name: Run KiCad DRC on candidate
         run: kicad-cli pcb drc --output pcbway-candidate-drc.json --format json --severity-error dev-real-production-pcbway-candidate.kicad_pcb
+      - name: Prepare a targeted reroute input
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import json, re, shutil
+          
+          report = json.loads(Path("pcbway-candidate-drc.json").read_text())
+          removable = set()
+          for violation in report["violations"]:
+              for item in violation.get("items", []):
+                  description = item["description"]
+                  if description.startswith(("Track ", "Via ", "Blind/Buried ")):
+                      removable.add(item["uuid"])
+          
+          source = Path("dev-real-production-pcbway-candidate.kicad_pcb").read_text()
+          out, cursor, removed = [], 0, {"Track": 0, "Via": 0}
+          while True:
+              starts = [p for p in (source.find("(segment", cursor), source.find("(via", cursor)) if p >= 0]
+              if not starts:
+                  out.append(source[cursor:])
+                  break
+              start = min(starts)
+              out.append(source[cursor:start])
+              depth, end = 0, start
+              while end < len(source):
+                  depth += (source[end] == "(") - (source[end] == ")")
+                  end += 1
+                  if depth == 0:
+                      break
+              block = source[start:end]
+              uuid = re.search(r'\(uuid "([^"]+)"\)', block)
+              if uuid and uuid.group(1) in removable:
+                  removed["Track" if block.startswith("(segment") else "Via"] += 1
+              else:
+                  out.append(block)
+              cursor = end
+          Path("pcbway-reroute-input.kicad_pcb").write_text("".join(out))
+          shutil.copyfile("dev-real-production-pcbway-candidate.kicad_pro", "pcbway-reroute-input.kicad_pro")
+          Path("reroute-input-summary.json").write_text(json.dumps({
+              "candidate_drc_violations": len(report["violations"]),
+              "removed_conflicting_tracks": removed["Track"],
+              "removed_conflicting_vias": removed["Via"],
+              "preserved_zones_and_pads": True,
+          }, indent=2))
+          print(json.dumps(json.loads(Path("reroute-input-summary.json").read_text())))
+          PY
+      - name: Export targeted reroute input to Specctra DSN
+        run: |
+          python3 - <<'PY'
+          import pcbnew
+          board = pcbnew.LoadBoard("pcbway-reroute-input.kicad_pcb")
+          if not pcbnew.ExportSpecctraDSN(board, "pcbway-reroute-input.dsn"):
+              raise SystemExit("Specctra DSN export failed")
+          PY
+      - name: Download stable Freerouting CLI
+        run: |
+          if ! command -v java >/dev/null 2>&1; then
+            apt-get update
+            apt-get install --yes --no-install-recommends default-jre-headless
+          fi
+          wget --quiet --tries=2 --https-only             https://github.com/freerouting/freerouting/releases/download/v2.2.4/freerouting-2.2.4.jar             -O freerouting-2.2.4.jar
+          java -jar freerouting-2.2.4.jar -help | head -30
+      - name: Autoroute only the deliberately opened conflict sites
+        id: route
+        continue-on-error: true
+        run: |
+          timeout 360s java -jar freerouting-2.2.4.jar             --gui.enabled=false --user_data_path=freerouting-user-data             -de pcbway-reroute-input.dsn -do pcbway-rerouted.ses             -mp 12 -mt 2 -dct 1 -da             --logging.console.level=INFO             | tee freerouting-route.log
+      - name: Import the route trial into a disposable KiCad board
+        id: import_route
+        if: always() && steps.route.outcome == 'success'
+        continue-on-error: true
+        run: |
+          python3 - <<'PY'
+          import pcbnew, shutil
+          board = pcbnew.LoadBoard("pcbway-reroute-input.kicad_pcb")
+          if not pcbnew.ImportSpecctraSES(board, "pcbway-rerouted.ses"):
+              raise SystemExit("Specctra SES import failed")
+          pcbnew.SaveBoard("pcbway-rerouted.kicad_pcb", board)
+          shutil.copyfile("pcbway-reroute-input.kicad_pro", "pcbway-rerouted.kicad_pro")
+          PY
+      - name: DRC-check the rerouted trial
+        if: always() && steps.import_route.outcome == 'success'
+        continue-on-error: true
+        run: |
+          kicad-cli pcb drc --output pcbway-rerouted-drc.json --format json --severity-error pcbway-rerouted.kicad_pcb
+          kicad-cli pcb export svg --output pcbway-rerouted-top.svg --layers F.Cu pcbway-rerouted.kicad_pcb
+      - name: Summarize route trial
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          for report in ("pcbway-candidate-drc.json", "pcbway-rerouted-drc.json"):
+              path = Path(report)
+              if path.exists():
+                  data = json.loads(path.read_text())
+                  print(f"{report}: violations={len(data.get('violations', []))}, unconnected={len(data.get('unconnected_items', []))}")
+          PY
       - name: Export candidate top-copper view
         run: kicad-cli pcb export svg --output pcbway-candidate-top.svg --layers F.Cu dev-real-production-pcbway-candidate.kicad_pcb
       - name: Summarize candidate violations
