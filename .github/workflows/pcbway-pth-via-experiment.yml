@@ -142,10 +142,19 @@ jobs:
           PY
       - name: Download stable Freerouting CLI
         run: |
-          if ! command -v java >/dev/null 2>&1; then
-            apt-get update
-            apt-get install --yes --no-install-recommends default-jre-headless
+          JAVA_BIN=""
+          for candidate in $(find /__t -type f -path '*/bin/java' | sort -V); do
+            if "$candidate" -version 2>&1 | grep -q 'version "25'; then
+              JAVA_BIN="$candidate"
+              break
+            fi
+          done
+          if [ -z "$JAVA_BIN" ]; then
+            echo "A Java 25 runtime was not mounted in the GitHub runner tool cache." >&2
+            exit 1
           fi
+          echo "JAVA_BIN=$JAVA_BIN" >> "$GITHUB_ENV"
+          "$JAVA_BIN" -version
           python3 - <<'PY'
           from pathlib import Path
           from urllib.request import urlopen
@@ -155,12 +164,12 @@ jobs:
           Path("freerouting-2.2.4.jar").write_bytes(payload)
           print("freerouting jar bytes=", len(payload), "sha256=", hashlib.sha256(payload).hexdigest())
           PY
-          java -jar freerouting-2.2.4.jar -help | head -30
+          "$JAVA_BIN" -jar freerouting-2.2.4.jar -help | head -30
       - name: Autoroute only the deliberately opened conflict sites
         id: route
         continue-on-error: true
         run: |
-          timeout 360s java -jar freerouting-2.2.4.jar             --gui.enabled=false --user_data_path=freerouting-user-data             -de pcbway-reroute-input.dsn -do pcbway-rerouted.ses             -mp 12 -mt 2 -dct 1 -da             --logging.console.level=INFO             | tee freerouting-route.log
+          timeout 360s "$JAVA_BIN" -jar freerouting-2.2.4.jar             --gui.enabled=false --user_data_path=freerouting-user-data             -de pcbway-reroute-input.dsn -do pcbway-rerouted.ses             -mp 12 -mt 2 -dct 1 -da             --logging.console.level=INFO             | tee freerouting-route.log
       - name: Import the route trial into a disposable KiCad board
         id: import_route
         if: always() && steps.route.outcome == 'success'
