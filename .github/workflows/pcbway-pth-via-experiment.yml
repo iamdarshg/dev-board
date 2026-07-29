@@ -15,16 +15,60 @@ jobs:
       options: --user root
     steps:
       - uses: actions/checkout@v4
-      - name: Enforce PCBWay mechanical PTH drill minimum
+      - name: Create PCBWay-compatible PTH-via candidate
         run: |
           python3 - <<'PY'
           from pathlib import Path
           import re, sys
 
-          drills = Path("dev-real-production-fab/dev-real-production-PTH.drl").read_text()
-          sizes = [float(v) for v in re.findall(r"^T\d+C([0-9.]+)$", drills, re.M)]
-          bad = [size for size in sizes if size < 0.15]
-          print(f"PTH tool sizes: {sizes}")
-          if bad:
-              sys.exit(f"PCBWay requires >= 0.15 mm mechanical/PTH drill; found {bad}")
+          source = Path("dev-real-production.kicad_pcb")
+          candidate = Path("dev-real-production-pcbway-candidate.kicad_pcb")
+          text = source.read_text()
+
+          # Promote only existing 0.254/0.127 through-vias. 0.31 mm pad with
+          # 0.15 mm drill leaves 0.08 mm annular ring, above PCBWay HDI's 3 mil floor.
+          pattern = r"(\\(via\\s+\\(at\\s+[^)]*\\)\\s+\\(size\\s+)0\\.254(\\)\\s+\\(drill\\s+)0\\.127(\\))"
+          updated, replacements = re.subn(pattern, r"\\g<1>0.31\\g<2>0.15\\g<3>", text)
+
+          if replacements == 0:
+              sys.exit("No 0.254/0.127 PTH vias were found to promote")
+          candidate.write_text(updated)
+          print(f"promoted {replacements} PTH vias to 0.31/0.15 mm")
           PY
+      - name: Verify candidate has no 0.127 mm PTH via drills
+        run: |
+          if grep -q '(drill 0.127)' dev-real-production-pcbway-candidate.kicad_pcb; then
+            echo "0.127 mm drills remain in candidate"
+            exit 1
+          fi
+      - name: Run KiCad DRC on candidate
+        run: |
+          kicad-cli pcb drc \
+            --output pcbway-candidate-drc.json \
+            --format json \
+            --severity-error \
+            --exit-code-violations \
+            dev-real-production-pcbway-candidate.kicad_pcb
+      - name: Enforce clean DRC and unconnected count
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import json, pathlib, sys
+          report = pathlib.Path("pcbway-candidate-drc.json")
+          if not report.exists():
+              sys.exit("candidate DRC report was not generated")
+          data = json.loads(report.read_text())
+          violations = data.get("violations", [])
+          unconnected = data.get("unconnected_items", [])
+          print(f"candidate violations={len(violations)} unconnected={len(unconnected)}")
+          for violation in violations[:100]:
+              print("VIOL:", violation.get("type"), violation.get("description"))
+          if violations or unconnected:
+              sys.exit("PCBWay via candidate is not DRC clean")
+          PY
+      - name: Upload candidate DRC report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pcbway-candidate-drc
+          path: pcbway-candidate-drc.json
