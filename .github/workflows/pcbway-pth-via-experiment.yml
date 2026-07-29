@@ -146,7 +146,15 @@ jobs:
             apt-get update
             apt-get install --yes --no-install-recommends default-jre-headless
           fi
-          wget --quiet --tries=2 --https-only             https://github.com/freerouting/freerouting/releases/download/v2.2.4/freerouting-2.2.4.jar             -O freerouting-2.2.4.jar
+          python3 - <<'PY'
+          from pathlib import Path
+          from urllib.request import urlopen
+          import hashlib
+          url = "https://github.com/freerouting/freerouting/releases/download/v2.2.4/freerouting-2.2.4.jar"
+          payload = urlopen(url, timeout=60).read()
+          Path("freerouting-2.2.4.jar").write_bytes(payload)
+          print("freerouting jar bytes=", len(payload), "sha256=", hashlib.sha256(payload).hexdigest())
+          PY
           java -jar freerouting-2.2.4.jar -help | head -30
       - name: Autoroute only the deliberately opened conflict sites
         id: route
