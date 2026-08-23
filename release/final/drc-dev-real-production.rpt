@@ -1,0 +1,567 @@
+** Drc report for dev-real-production.kicad_pcb **
+** Created on 2026-08-24T00:02:12+0530 **
+
+** Found 175 DRC violations **
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(58.0400 mm, 30.7135 mm): Track [GND] on Top Layer, length 0.2773 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(16.8062 mm, 14.8468 mm): Track [GND] on Top Layer, length 0.3156 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(52.8836 mm, 22.7577 mm): Track [GND] on Top Layer, length 0.4935 mm
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(0.7228 mm, 1.1148 mm): Via [GND] on Top Layer - Bottom Layer
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(57.4788 mm, 30.7012 mm): Track [GND] on Bottom Layer, length 1.2790 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(57.9200 mm, 30.9635 mm): Track [GND] on Bottom Layer, length 0.2773 mm
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(63.9000 mm, 61.3000 mm): Micro Via [/Power/VDD] on Top Layer - Ground Layer 1
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(73.0500 mm, 66.7500 mm): Micro Via [/Power/SW] on Top Layer - Ground Layer 1
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(59.6000 mm, 69.2000 mm): Micro Via [/Power/SW] on Top Layer - Ground Layer 1
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(58.5000 mm, 59.7000 mm): Micro Via [/Power/FB] on Top Layer - Ground Layer 1
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(60.4400 mm, 80.0900 mm): Track [+3V3] on Top Layer, length 0.5385 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(57.8400 mm, 80.1900 mm): Track [+3V3] on Top Layer, length 0.7071 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(53.3081 mm, 22.3796 mm): Track [+3V3] on Top Layer, length 0.0518 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(68.1000 mm, 64.2000 mm): Track [+3V3] on Bottom Layer, length 0.1000 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(62.4240 mm, 24.7140 mm): Track [/IWRL6432BD/XTALM] on Top Layer, length 0.3294 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(60.7500 mm, 26.2500 mm): Track [/IWRL6432BD/XTALM] on Top Layer, length 0.2500 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(60.7500 mm, 26.2500 mm): Track [/IWRL6432BD/XTALM] on Top Layer, length 0.2800 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(61.0916 mm, 25.2500 mm): Track [/IWRL6432BD/XTALP] on Bottom Layer, length 0.5173 mm
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(54.4500 mm, 16.2000 mm): Micro Via [/IWRL6432BD/NRESET] on Top Layer - Ground Layer 1
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(62.1680 mm, 30.5680 mm): Via [/IWRL6432BD/RADAR_VBGAP] on Top Layer - Bottom Layer
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(51.5358 mm, 27.7538 mm): Via [/IWRL6432BD/USB_VBUS] on Top Layer - Bottom Layer
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(52.4600 mm, 20.6917 mm): Track [/IWRL6432BD/USB_VBUS] on Bottom Layer, length 0.1317 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(50.3792 mm, 27.3628 mm): Track [/IWRL6432BD/USB_VBUS] on Bottom Layer, length 0.4472 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(64.2300 mm, 28.0500 mm): Track [/IWRL6432BD/RADAR_1V4_SYNTH] on Bottom Layer, length 1.1045 mm
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(62.0240 mm, 30.0940 mm): Via [/IWRL6432BD/RADAR_1P2_RF] on Top Layer - Bottom Layer
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(50.5585 mm, 25.2300 mm): Via [/IWRL6432BD/RADAR_SRAM_1V2] on Top Layer - Bottom Layer
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(51.6285 mm, 21.7985 mm): Via [/IWRL6432BD/RADAR_1V2_INT] on Top Layer - Bottom Layer
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(71.9648 mm, 10.5772 mm): Via [/AD9609/3V3_AFE] on Top Layer - Bottom Layer
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(31.0809 mm, 40.2379 mm): Track [/STM32H7/VREFP] on Top Layer, length 0.8260 mm
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(62.2000 mm, 70.7000 mm): Micro Via [/Power/VIN] on Top Layer - Ground Layer 1
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(60.5000 mm, 57.0000 mm): Micro Via [/Power/VIN] on Top Layer - Ground Layer 1
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(59.0000 mm, 50.8000 mm): Micro Via [/Power/AGND] on Top Layer - Ground Layer 1
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(66.9000 mm, 54.7000 mm): Micro Via [/Power/AGND] on Top Layer - Ground Layer 1
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(67.3000 mm, 54.8000 mm): Micro Via [/Power/AGND] on Top Layer - Ground Layer 1
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(61.9650 mm, 59.2150 mm): Track [/Power/PG] on Top Layer, length 0.1202 mm
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(67.1500 mm, 61.1000 mm): Micro Via [/Power/EN] on Top Layer - Ground Layer 1
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(76.7020 mm, 63.4870 mm): Via [/Power/EN] on Top Layer - Bottom Layer
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(20.5878 mm, 41.3059 mm): Track [/STM32H7/JTDI] on Top Layer, length 0.7393 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(76.5470 mm, 95.0489 mm): Track [/IWRL6432BD/USB_ID] on Top Layer, length 0.2871 mm
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(64.4596 mm, 30.9154 mm): Via [/IWRL6432BD/USB_ID] on Top Layer - Bottom Layer
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(51.6898 mm, 30.7000 mm): Via [/IWRL6432BD/FT_TXD] on Top Layer - Bottom Layer
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(55.8798 mm, 10.6248 mm): Track [/IWRL6432BD/FT_TXD] on Bottom Layer, length 2.6896 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(62.8466 mm, 30.3836 mm): Track [/IWRL6432BD/FT_TXD] on Bottom Layer, length 5.6235 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(50.1193 mm, 27.0440 mm): Track [/IWRL6432BD/RS232_TX] on Bottom Layer, length 2.9682 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(56.0275 mm, 25.9909 mm): Track [/IWRL6432BD/QSPI_D2] on Power Layer 2, length 1.4931 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(99.8000 mm, 20.0000 mm): Track [/THX8136/AR] on Top Layer, length 2.2000 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(98.8000 mm, 24.0000 mm): Track [/THX8136/AG] on Top Layer, length 3.2000 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(100.8000 mm, 16.0000 mm): Track [/THX8136/AB] on Top Layer, length 1.2000 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(83.8500 mm, 39.4500 mm): Track [/THX8136/SYNC] on Top Layer, length 0.2121 mm
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(81.7500 mm, 33.4500 mm): Micro Via [/THX8136/SYNC] on Top Layer - Ground Layer 1
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(82.9500 mm, 26.5500 mm): Track [/THX8136/SYNC] on Ground Layer 1, length 0.1500 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(37.4346 mm, 4.5186 mm): Track [/THX8136/M2] on Bottom Layer, length 2.8722 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(7.9053 mm, 37.6053 mm): Track [/THX8136/M2] on Bottom Layer, length 14.3144 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(77.2000 mm, 42.5000 mm): Track [/AD9609/SCOPE_PGA_CS_N] on Top Layer, length 0.0707 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(69.8043 mm, 27.8045 mm): Track [/AD9609/RBIAS] on Bottom Layer, length 3.1620 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(70.6896 mm, 35.1068 mm): Track [/AD9609/RBIAS] on Bottom Layer, length 2.2853 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(83.1693 mm, 41.0736 mm): Track [/AD9609/RBIAS] on Bottom Layer, length 0.5114 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(81.6000 mm, 60.4000 mm): Track [/AD9609/SCOPE_DRIVER_PD_N] on Top Layer, length 1.3000 mm
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(97.6000 mm, 43.6000 mm): Micro Via [/AD9609/SCOPE_DRIVER_PD_N] on Top Layer - Ground Layer 1
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(41.2670 mm, 44.8908 mm): Track [/STM32H7/ETH_RXD0] on Top Layer, length 0.5608 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(43.8713 mm, 47.3343 mm): Track [/STM32H7/ETH_RXD1] on Top Layer, length 0.7738 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(25.5410 mm, 76.0752 mm): Track [/STM32H7/RJ_LED_GREEN_A] on Bottom Layer, length 0.1510 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(78.8533 mm, 41.2801 mm): Track [Net-(U20-CH1)] on Bottom Layer, length 1.4854 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(98.4400 mm, 40.0847 mm): Track [Net-(U20-CH1)] on Bottom Layer, length 0.4358 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(82.4147 mm, 12.3700 mm): Track [/IWRL6432BD/JTAG_TCK] on Power Layer 2, length 13.0943 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(54.7147 mm, 24.8425 mm): Track [/IWRL6432BD/JTAG_TCK] on Power Layer 2, length 2.3504 mm
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(54.3312 mm, 19.7718 mm): Via [/IWRL6432BD/TDO_SOP0] on Top Layer - Bottom Layer
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(57.0940 mm, 17.0840 mm): Via [/IWRL6432BD/TDO_SOP0] on Top Layer - Bottom Layer
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(55.9985 mm, 23.0031 mm): Via [/IWRL6432BD/PMIC_CLKOUT_SOP1] on Top Layer - Bottom Layer
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(25.3359 mm, 83.2758 mm): Track [/MM8108/TDO_SOP0] on Top Layer, length 1.4823 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(63.0825 mm, 66.0229 mm): Track [/XCC1352R1F3RGZR/DIO_26] on Ground Layer 1, length 31.6377 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(80.1823 mm, 39.8131 mm): Track [/XCC1352R1F3RGZR/DIO_21] on Ground Layer 1, length 3.1752 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(25.2664 mm, 18.5420 mm): Track [/XCC1352R1F3RGZR/DIO_21] on Power Layer 2, length 2.3446 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(26.3714 mm, 83.5927 mm): Track [/MM8108/JTAG_TDI] on Top Layer, length 1.5359 mm
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(24.0875 mm, 18.2500 mm): Via [/XCC1352R1F3RGZR/DIO_20] on Top Layer - Bottom Layer
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(72.5729 mm, 70.1428 mm): Track [/XCC1352R1F3RGZR/DIO_20] on Ground Layer 1, length 34.7592 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(69.0000 mm, 34.3500 mm): Track [/XCC1352R1F3RGZR/DIO_11] on Ground Layer 1, length 9.2561 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(69.0000 mm, 34.3500 mm): Track [/XCC1352R1F3RGZR/DIO_11] on Ground Layer 1, length 6.3640 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(24.1033 mm, 19.2500 mm): Track [/XCC1352R1F3RGZR/DIO_18] on Power Layer 2, length 2.2079 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(88.2385 mm, 61.2735 mm): Track [/XCC1352R1F3RGZR/DIO_19] on Ground Layer 1, length 4.4767 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(24.0884 mm, 18.7500 mm): Track [/XCC1352R1F3RGZR/DIO_19] on Power Layer 2, length 2.4682 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(51.0405 mm, 94.4980 mm): Track [/IWRL6432BD/USB_DP_CONN] on Bottom Layer, length 5.1831 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(77.2000 mm, 43.0000 mm): Track [/AD9609/SCOPE_PGA_DIO] on Top Layer, length 0.0707 mm
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(73.8000 mm, 45.0000 mm): Micro Via [/AD9609/SCOPE_PGA_DIO] on Top Layer - Ground Layer 1
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(75.2468 mm, 44.7450 mm): Track [/AD9609/SCOPE_PGA_SCLK] on Top Layer, length 0.2181 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(69.7500 mm, 24.9000 mm): Track [/AD9609/D9] on Ground Layer 1, length 2.5500 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(63.7611 mm, 30.0601 mm): Track [/AD9609/CLK_P] on Bottom Layer, length 0.7252 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(61.4837 mm, 34.3775 mm): Track [/AD9609/SDIO_PDWN] on Bottom Layer, length 1.6603 mm
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(72.7500 mm, 25.7500 mm): Via [/AD9609/DCO] on Top Layer - Bottom Layer
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(75.5273 mm, 38.4477 mm): Via [/STM32H7/PE0] on Top Layer - Bottom Layer
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(73.2650 mm, 44.8394 mm): Track [/STM32H7/PB5] on Ground Layer 1, length 3.6923 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(72.6715 mm, 24.8280 mm): Track [/STM32H7/PM3] on Power Layer 2, length 5.5132 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(50.8111 mm, 28.7480 mm): Track [/STM32H7/PM3] on Power Layer 2, length 1.9313 mm
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(80.0633 mm, 32.8016 mm): Via [/STM32H7/PB14] on Top Layer - Bottom Layer
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(17.3743 mm, 36.0903 mm): Track [/RP2350/GPIO7] on Ground Layer 1, length 15.3282 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(61.5323 mm, 23.9715 mm): Track [/STM32H7/PM1] on Top Layer, length 0.6212 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(32.0000 mm, 87.5000 mm): Track [/MM8108/SDIO_CLK_SPI_SCK] on Top Layer, length 0.7384 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(22.2500 mm, 13.0000 mm): Track [/STM32H7/PP7] on Ground Layer 1, length 1.2500 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(81.6272 mm, 26.5119 mm): Track [/STM32H7/PM2] on Power Layer 2, length 6.3622 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(73.3724 mm, 24.6193 mm): Track [/STM32H7/PM2] on Power Layer 2, length 6.3737 mm
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(65.3650 mm, 24.4025 mm): Via [/STM32H7/PM5] on Top Layer - Bottom Layer
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(82.1411 mm, 26.8491 mm): Track [/STM32H7/PM5] on Power Layer 2, length 0.2116 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(74.0977 mm, 45.2899 mm): Track [/STM32H7/PO5] on Ground Layer 1, length 0.6891 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(38.4582 mm, 29.7906 mm): Track [/STM32H7/PM0] on Power Layer 2, length 23.0483 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(56.1000 mm, 23.4000 mm): Track [/IWRL6432BD/GPIO_2] on Top Layer, length 0.3000 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(60.9000 mm, 26.8500 mm): Track [/IWRL6432BD/GPIO_2] on Ground Layer 1, length 0.3000 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(68.3000 mm, 68.5000 mm): Track [/IWRL6432BD/GPIO_5] on Top Layer, length 0.7071 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(65.4000 mm, 29.7000 mm): Track [/IWRL6432BD/GPIO_5] on Ground Layer 1, length 0.7071 mm
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(55.5980 mm, 80.1480 mm): Via [/IWRL6432BD/GPIO_6] on Top Layer - Bottom Layer
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(60.6796 mm, 79.6134 mm): Via [/IWRL6432BD/GPIO_7] on Top Layer - Bottom Layer
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(59.2796 mm, 67.0134 mm): Track [/IWRL6432BD/GPIO_7] on Ground Layer 1, length 0.9899 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(49.5995 mm, 53.6400 mm): Track [/IWRL6432BD/RDIF_D2] on Ground Layer 1, length 0.1000 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(59.7500 mm, 26.7500 mm): Track [/IWRL6432BD/RF_TX1] on Top Layer, length 0.2500 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(58.7500 mm, 26.7500 mm): Track [/IWRL6432BD/RF_TX2] on Top Layer, length 0.2500 mm
+[holes_co_located]: Drilled holes co-located
+    Local override; warning
+    @(62.3000 mm, 52.5000 mm): Via [GND] on Top Layer - Bottom Layer
+    @(62.3000 mm, 52.5000 mm): Micro Via [GND] on Top Layer - Ground Layer 1
+[holes_co_located]: Drilled holes co-located
+    Local override; warning
+    @(59.6000 mm, 70.8000 mm): Micro Via [GND] on Top Layer - Ground Layer 1
+    @(59.6000 mm, 70.8000 mm): Via [GND] on Top Layer - Bottom Layer
+[holes_co_located]: Drilled holes co-located
+    Local override; warning
+    @(1.2772 mm, 1.1148 mm): Via [GND] on Top Layer - Bottom Layer
+    @(1.2772 mm, 1.1148 mm): Via [GND] on Top Layer - Bottom Layer
+[holes_co_located]: Drilled holes co-located
+    Local override; warning
+    @(1.0000 mm, 1.3000 mm): Via [GND] on Top Layer - Bottom Layer
+    @(1.0000 mm, 1.3000 mm): Via [GND] on Top Layer - Bottom Layer
+[holes_co_located]: Drilled holes co-located
+    Local override; warning
+    @(1.3889 mm, 1.3889 mm): Via [GND] on Top Layer - Bottom Layer
+    @(1.3889 mm, 1.3889 mm): Via [GND] on Top Layer - Bottom Layer
+[holes_co_located]: Drilled holes co-located
+    Local override; warning
+    @(71.2000 mm, 72.3000 mm): Micro Via [GND] on Top Layer - Ground Layer 1
+    @(71.2000 mm, 72.3000 mm): Via [GND] on Top Layer - Bottom Layer
+[holes_co_located]: Drilled holes co-located
+    Local override; warning
+    @(70.8000 mm, 54.7000 mm): Micro Via [GND] on Top Layer - Ground Layer 1
+    @(70.8000 mm, 54.7000 mm): Via [GND] on Top Layer - Bottom Layer
+[holes_co_located]: Drilled holes co-located
+    Local override; warning
+    @(1.5500 mm, 1.0000 mm): Via [GND] on Top Layer - Bottom Layer
+    @(1.5500 mm, 1.0000 mm): Via [GND] on Top Layer - Bottom Layer
+[holes_co_located]: Drilled holes co-located
+    Local override; warning
+    @(63.4000 mm, 73.0000 mm): Micro Via [GND] on Top Layer - Ground Layer 1
+    @(63.4000 mm, 73.0000 mm): Via [GND] on Top Layer - Bottom Layer
+[holes_co_located]: Drilled holes co-located
+    Local override; warning
+    @(63.1000 mm, 73.0000 mm): Micro Via [GND] on Top Layer - Ground Layer 1
+    @(63.1000 mm, 73.0000 mm): Via [GND] on Top Layer - Bottom Layer
+[hole_to_hole]: Drilled hole too close to other hole (board setup constraints min 0.1495 mm; actual 0.0000 mm)
+    Rule: board setup constraints; warning
+    @(64.2000 mm, 56.7000 mm): Via [/Power/VDD] on Top Layer - Bottom Layer
+    @(64.3000 mm, 56.7000 mm): Micro Via [/Power/VDD] on Top Layer - Ground Layer 1
+[holes_co_located]: Drilled holes co-located
+    Local override; warning
+    @(63.9000 mm, 61.3000 mm): Micro Via [/Power/VDD] on Top Layer - Ground Layer 1
+    @(63.9000 mm, 61.3000 mm): Via [/Power/VDD] on Top Layer - Bottom Layer
+[hole_to_hole]: Drilled hole too close to other hole (board setup constraints min 0.1495 mm; actual 0.0000 mm)
+    Rule: board setup constraints; warning
+    @(63.4000 mm, 60.8000 mm): Micro Via [/Power/VDD] on Top Layer - Ground Layer 1
+    @(63.5000 mm, 60.8000 mm): Via [/Power/VDD] on Top Layer - Bottom Layer
+[holes_co_located]: Drilled holes co-located
+    Local override; warning
+    @(59.1000 mm, 56.6000 mm): Micro Via [/Power/VDD] on Top Layer - Ground Layer 1
+    @(59.1000 mm, 56.6000 mm): Via [/Power/VDD] on Top Layer - Bottom Layer
+[holes_co_located]: Drilled holes co-located
+    Local override; warning
+    @(59.6000 mm, 69.2000 mm): Via [/Power/SW] on Top Layer - Bottom Layer
+    @(59.6000 mm, 69.2000 mm): Micro Via [/Power/SW] on Top Layer - Ground Layer 1
+[holes_co_located]: Drilled holes co-located
+    Local override; warning
+    @(71.5000 mm, 66.2000 mm): Micro Via [/Power/SW] on Top Layer - Ground Layer 1
+    @(71.5000 mm, 66.2000 mm): Blind/Buried Via [/Power/SW] on Ground Layer 1 - Power Layer 2
+[hole_to_hole]: Drilled hole too close to other hole (board setup constraints min 0.1495 mm; actual 0.0500 mm)
+    Rule: board setup constraints; warning
+    @(71.5000 mm, 66.0000 mm): Micro Via [/Power/SW] on Top Layer - Ground Layer 1
+    @(71.5000 mm, 66.2000 mm): Blind/Buried Via [/Power/SW] on Ground Layer 1 - Power Layer 2
+[hole_to_hole]: Drilled hole too close to other hole (board setup constraints min 0.1495 mm; actual 0.0500 mm)
+    Rule: board setup constraints; warning
+    @(71.5000 mm, 66.2000 mm): Blind/Buried Via [/Power/SW] on Ground Layer 1 - Power Layer 2
+    @(71.5000 mm, 66.0000 mm): Blind/Buried Via [/Power/SW] on Ground Layer 1 - Power Layer 2
+[hole_to_hole]: Drilled hole too close to other hole (board setup constraints min 0.1495 mm; actual 0.0500 mm)
+    Rule: board setup constraints; warning
+    @(71.5000 mm, 66.2000 mm): Micro Via [/Power/SW] on Top Layer - Ground Layer 1
+    @(71.5000 mm, 66.0000 mm): Blind/Buried Via [/Power/SW] on Ground Layer 1 - Power Layer 2
+[holes_co_located]: Drilled holes co-located
+    Local override; warning
+    @(71.5000 mm, 66.0000 mm): Micro Via [/Power/SW] on Top Layer - Ground Layer 1
+    @(71.5000 mm, 66.0000 mm): Blind/Buried Via [/Power/SW] on Ground Layer 1 - Power Layer 2
+[holes_co_located]: Drilled holes co-located
+    Local override; warning
+    @(58.5000 mm, 59.7000 mm): Via [/Power/FB] on Top Layer - Bottom Layer
+    @(58.5000 mm, 59.7000 mm): Micro Via [/Power/FB] on Top Layer - Ground Layer 1
+[hole_to_hole]: Drilled hole too close to other hole (board setup constraints min 0.1495 mm; actual 0.0164 mm)
+    Rule: board setup constraints; warning
+    @(72.0000 mm, 65.0000 mm): Via [+3V3] on Top Layer - Bottom Layer
+    @(72.1000 mm, 65.1000 mm): Micro Via [+3V3] on Top Layer - Ground Layer 1
+[hole_to_hole]: Drilled hole too close to other hole (board setup constraints min 0.1495 mm; actual 0.0000 mm)
+    Rule: board setup constraints; warning
+    @(72.0000 mm, 65.0000 mm): Via [+3V3] on Top Layer - Bottom Layer
+    @(72.1000 mm, 65.0000 mm): Micro Via [+3V3] on Top Layer - Ground Layer 1
+[holes_co_located]: Drilled holes co-located
+    Local override; warning
+    @(62.2000 mm, 70.7000 mm): Via [/Power/VIN] on Top Layer - Bottom Layer
+    @(62.2000 mm, 70.7000 mm): Micro Via [/Power/VIN] on Top Layer - Ground Layer 1
+[hole_to_hole]: Drilled hole too close to other hole (board setup constraints min 0.1495 mm; actual 0.0986 mm)
+    Rule: board setup constraints; warning
+    @(58.9000 mm, 58.8000 mm): Micro Via [/Power/VIN] on Top Layer - Ground Layer 1
+    @(58.8000 mm, 58.6000 mm): Via [/Power/VIN] on Top Layer - Bottom Layer
+[hole_to_hole]: Drilled hole too close to other hole (board setup constraints min 0.1495 mm; actual 0.0000 mm)
+    Rule: board setup constraints; warning
+    @(58.8000 mm, 58.6000 mm): Via [/Power/VIN] on Top Layer - Bottom Layer
+    @(58.8000 mm, 58.7000 mm): Micro Via [/Power/VIN] on Top Layer - Ground Layer 1
+[hole_to_hole]: Drilled hole too close to other hole (board setup constraints min 0.1495 mm; actual 0.0736 mm)
+    Rule: board setup constraints; warning
+    @(58.8000 mm, 58.6000 mm): Via [/Power/VIN] on Top Layer - Bottom Layer
+    @(58.9000 mm, 58.8000 mm): Via [/Power/VIN] on Top Layer - Bottom Layer
+[holes_co_located]: Drilled holes co-located
+    Local override; warning
+    @(60.5000 mm, 57.0000 mm): Via [/Power/VIN] on Top Layer - Bottom Layer
+    @(60.5000 mm, 57.0000 mm): Micro Via [/Power/VIN] on Top Layer - Ground Layer 1
+[holes_co_located]: Drilled holes co-located
+    Local override; warning
+    @(58.9000 mm, 58.8000 mm): Micro Via [/Power/VIN] on Top Layer - Ground Layer 1
+    @(58.9000 mm, 58.8000 mm): Via [/Power/VIN] on Top Layer - Bottom Layer
+[hole_to_hole]: Drilled hole too close to other hole (board setup constraints min 0.1495 mm; actual 0.0164 mm)
+    Rule: board setup constraints; warning
+    @(58.8000 mm, 58.7000 mm): Micro Via [/Power/VIN] on Top Layer - Ground Layer 1
+    @(58.9000 mm, 58.8000 mm): Via [/Power/VIN] on Top Layer - Bottom Layer
+[holes_co_located]: Drilled holes co-located
+    Local override; warning
+    @(67.3000 mm, 54.8000 mm): Via [/Power/AGND] on Top Layer - Bottom Layer
+    @(67.3000 mm, 54.8000 mm): Micro Via [/Power/AGND] on Top Layer - Ground Layer 1
+[holes_co_located]: Drilled holes co-located
+    Local override; warning
+    @(66.9000 mm, 54.7000 mm): Micro Via [/Power/AGND] on Top Layer - Ground Layer 1
+    @(66.9000 mm, 54.7000 mm): Via [/Power/AGND] on Top Layer - Bottom Layer
+[holes_co_located]: Drilled holes co-located
+    Local override; warning
+    @(59.0000 mm, 50.8000 mm): Micro Via [/Power/AGND] on Top Layer - Ground Layer 1
+    @(59.0000 mm, 50.8000 mm): Via [/Power/AGND] on Top Layer - Bottom Layer
+[holes_co_located]: Drilled holes co-located
+    Local override; warning
+    @(67.1500 mm, 61.1000 mm): Micro Via [/Power/EN] on Top Layer - Ground Layer 1
+    @(67.1500 mm, 61.1000 mm): Via [/Power/EN] on Top Layer - Bottom Layer
+[holes_co_located]: Drilled holes co-located
+    Local override; warning
+    @(90.0000 mm, 54.2500 mm): Via [/AD9609/DCO] on Top Layer - Bottom Layer
+    @(90.0000 mm, 54.2500 mm): Via [/AD9609/DCO] on Top Layer - Bottom Layer
+[lib_footprint_mismatch]: Footprint 'NetTie-2_SMD_Pad0.5mm' does not match copy in library 'NetTie'.
+    Local override; warning
+    @(70.3000 mm, 54.7000 mm): Footprint NT1
+[lib_footprint_mismatch]: Footprint 'QFN-32-1EP_5x5mm_P0.5mm_EP3.45x3.45mm_ThermalVias' does not match copy in library 'Package_DFN_QFN'.
+    Local override; warning
+    @(68.3915 mm, 26.4721 mm): Footprint U21
+[lib_footprint_mismatch]: Footprint 'WSON-8-1EP_6x5mm_P1.27mm_EP3.4x4mm' does not match copy in library 'Package_SON'.
+    Local override; warning
+    @(47.0000 mm, 38.0000 mm): Footprint U14
+[lib_footprint_mismatch]: Footprint 'WSON-8-1EP_6x5mm_P1.27mm_EP3.4x4mm' does not match copy in library 'Package_SON'.
+    Local override; warning
+    @(56.0000 mm, 75.0000 mm): Footprint U15
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6500 mm)
+    Rule: board setup constraints silk text height; warning
+    @(15.4345 mm, 16.0000 mm): Reference field of TR1
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.5500 mm)
+    Rule: board setup constraints silk text height; warning
+    @(9.5045 mm, 16.0000 mm): Reference field of U6
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(9.6000 mm, 14.0000 mm): Segment of J7 on Top Overlay
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(59.9500 mm, 61.9500 mm): Segment of U3 on Top Overlay
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(59.9500 mm, 61.9500 mm): Segment of U3 on Top Overlay
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(59.9500 mm, 67.1500 mm): Segment of U3 on Top Overlay
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(59.9500 mm, 68.0500 mm): Segment of U3 on Top Overlay
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(65.1500 mm, 61.9500 mm): Segment of U3 on Top Overlay
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(65.1500 mm, 68.0500 mm): Segment of U3 on Top Overlay
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(66.0500 mm, 61.9500 mm): Segment of U3 on Top Overlay
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(66.0500 mm, 67.1500 mm): Segment of U3 on Top Overlay
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(6.9536 mm, 17.6200 mm): Segment of RANT1 on Top Overlay
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(6.9536 mm, 18.3800 mm): Segment of RANT1 on Top Overlay
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(9.5045 mm, 16.0000 mm): Reference field of U6
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(8.9078 mm, 19.5600 mm): Segment of CANT1 on Top Overlay
+[silk_overlap]: Silkscreen overlap
+    Rule: board setup constraints silk; warning
+    @(15.4345 mm, 16.0000 mm): Reference field of TR1
+    @(15.8600 mm, 15.2500 mm): Polygon of U5 on Top Overlay
+[silk_overlap]: Silkscreen overlap
+    Rule: board setup constraints silk; warning
+    @(9.5045 mm, 16.0000 mm): Reference field of U6
+    @(9.6000 mm, 14.0000 mm): Segment of J7 on Top Overlay
+[copper_sliver]: Copper sliver (Top Layer)
+    Local override; warning
+[copper_sliver]: Copper sliver (Top Layer)
+    Local override; warning
+[copper_sliver]: Copper sliver (Bottom Layer)
+    Local override; warning
+[copper_sliver]: Copper sliver (Bottom Layer)
+    Local override; warning
+[copper_sliver]: Copper sliver (Power Layer 2)
+    Local override; warning
+
+** Found 0 unconnected pads **
+
+** Found 0 Footprint errors **
+
+** End of Report **
