@@ -1,7 +1,7 @@
 ** Drc report for dev-real-production.kicad_pcb **
-** Created on 2026-08-24T00:02:12+0530 **
+** Created on 2026-08-24T13:22:06+0530 **
 
-** Found 175 DRC violations **
+** Found 176 DRC violations **
 [track_dangling]: Track has unconnected end
     Local override; warning
     @(58.0400 mm, 30.7135 mm): Track [GND] on Top Layer, length 0.2773 mm
@@ -314,6 +314,9 @@
 [track_dangling]: Track has unconnected end
     Local override; warning
     @(38.4582 mm, 29.7906 mm): Track [/STM32H7/PM0] on Power Layer 2, length 23.0483 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(17.9476 mm, 76.8786 mm): Track [/STM32H7/PHY_TXN] on Top Layer, length 5.2740 mm
 [track_dangling]: Track has unconnected end
     Local override; warning
     @(56.1000 mm, 23.4000 mm): Track [/IWRL6432BD/GPIO_2] on Top Layer, length 0.3000 mm
