@@ -8,8 +8,11 @@
 - DRC report: `dev-real-production-drc.rpt`
 - Detailed pair audit: `dev-real-production-length-audit.txt`
 
-The final KiCad 9 DRC result is **0 unconnected pads** and **0 errors** at error
-severity.
+The current KiCad 9.0.7 DRC result is **107 violations: 4 errors, 103
+warnings, and 0 unconnected items**. The four error records represent two
+physical via-to-zone conflicts (each reported once for copper clearance and
+once for hole clearance); see the current-routing section for coordinates and
+the remaining manual work.
 
 **Fab outputs are stale as of the L1 change below.** `dev-real-production-fab/`
 (gerbers, drill files, `-positions.csv`, `-netlist.xml`, `-drc.rpt`, `.zip`) and
@@ -83,16 +86,64 @@ The exposed 1.0 mm test pads are grouped on the bottom edge at 2.0 mm pitch:
 
 ADC test-branch mismatch is 0.509 mm. These are measurement branches; keep probes and flying leads short.
 
-## Current routing status (2026-09-08; manual-routing candidate)
+## Current routing status (2026-09-08; cleaned manual-routing candidate)
 
-The board file currently in the working tree contains a manual routing edit
-made in KiCad. It is being committed as a review candidate, not promoted to
-the fabrication release. KiCad 9.0.7 DRC on this edited file reports **1
-error**, **175 warnings**, and **0 unconnected items**. The blocking error is
-an AD9609 `/AD9609/CLK_N` Top-Layer clearance violation at approximately
-(63.4002, 29.6802) mm against the `SOURCE_BACKED_ANALOG_REPAIR_ADC_TOP_GND`
-zone. The previously released board at commit `3a95473` remains the clean
-fabrication baseline.
+The checked-in board contains the latest manual KiCad routing plus a
+conservative basic-DRC cleanup. The cleanup removed **59 zero-pad signal track
+segments**, **20 zero-pad signal vias**, **5 byte-identical duplicate vias**,
+and **12 exact F.SilkS primitives** named by DRC. The undersized `TR1` and `U6`
+reference text was resized to 0.8 mm and moved clear. This eliminated every
+`silk_over_copper`, `silk_overlap`, and `text_height` violation. A deliberately
+broader cleanup was tested and rejected because it created a genuine
+unconnected item; sensitive and ambiguous one-pad routes therefore remain for
+visual review instead of being deleted automatically.
+
+KiCad 9.0.7 DRC on the resulting board reports **107 violations: 4 errors and
+103 warnings, with 0 unconnected items and 0 footprint errors**. The repeatable
+pre-cleanup control result was 176 violations (4 errors and 172 warnings), so
+this pass removed 69 warnings without increasing the error or unconnected
+counts. This remains a review candidate, not a fabrication release. The
+previously released board at commit `3a95473` remains the clean fabrication
+baseline, and the fabrication outputs listed above have not been regenerated.
+
+### Manual actions still required
+
+1. **Fix the two real via-to-zone conflicts first.** Each creates both a
+   clearance and a hole-clearance error:
+   - `/MM8108/SDIO_D0_SPI_MISO` through via at **(24.3991, 83.3043) mm** versus
+     the Ground Layer 1 GND zone: copper clearance is 0.0061 mm versus 0.1000
+     mm required; hole clearance is 0.0561 mm versus 0.1200 mm required.
+   - GND through via at **(22.5030, 80.6170) mm** versus the Power Layer 2
+     `PWR_3V3_PLANE`: both reported actual clearances are 0.0000 mm. Move the
+     via or reshape the zone while preserving the via's intended connection.
+2. **Inspect the 39 remaining dangling-track markers in KiCad before deleting
+   anything.** Highest-risk examples are `/IWRL6432BD/XTALM`,
+   `/IWRL6432BD/RF_TX1`, `/IWRL6432BD/RF_TX2`, `/IWRL6432BD/GPIO_2`,
+   `/STM32H7/VREFP`, `/STM32H7/ETH_RXD0`, `/STM32H7/ETH_RXD1`,
+   `/MM8108/ANT`, `/AD9609/DCO`, `/AD9609/D9`, and the IWRL USB VBUS/ID
+   routes. These include one-pad stubs, sensitive launches, and branches that
+   cannot be classified as unused from connectivity alone. The remaining
+   markers also include GND/+3V3/power stubs that should be judged against the
+   intended plane connection.
+3. **Inspect the 20 remaining dangling-via markers.** They include one-pad
+   supply/decoupling transitions and signal transitions on `/Power/VDD`,
+   `/Power/SW`, `/Power/FB`, `/Power/VIN`, `/Power/AGND`, `/Power/EN`,
+   `/IWRL6432BD/RADAR_SRAM_1V2`, `/IWRL6432BD/FT_TXD`,
+   `/IWRL6432BD/QSPI_D2`, `/AD9609/3V3_AFE`, `/THX8136/AR`, `/THX8136/AG`,
+   `/THX8136/AB`, and `/STM32H7/PM3`. Delete only after confirming the
+   transition is not intentional.
+4. **Resolve or obtain fabricator approval for 20 co-located-hole and 11
+   hole-to-hole warnings.** Most are intentional-looking stacked microvia /
+   through-via structures on GND and power nets, but they need confirmation
+   against the selected HDI process. The same-position `/AD9609/DCO` via pair
+   at approximately (90.0, 54.25) mm also needs visual inspection.
+5. **Open and reshape the five copper-sliver DRC markers** (two Top Layer, two
+   Bottom Layer, one Power Layer 2). The text report identifies their layers
+   but does not provide coordinates, so use the interactive DRC marker list.
+6. **Review the eight library-footprint mismatch warnings.** `J7`, `U3`,
+   `RANT1`, and `CANT1` are expected after this local silkscreen cleanup;
+   `NT1`, `U21`, `U14`, and `U15` were pre-existing. These are not footprint
+   errors, but verify their land patterns before fabrication.
 
 The following are the remaining measured end-to-end pair mismatches on the
 checked-in board. They are documented for interactive KiCad follow-up; they
@@ -102,8 +153,8 @@ must not be treated as solved merely because the board passes ordinary DRC:
 |---|---:|---|
 | IWRL USB DM/DP to J10 | 0.097 mm | manually tuned; verify after DRC fix |
 | RP2350 USB D-/D+ to J4 | 0.967 mm | manually tuned; verify after DRC fix |
-| STM32 USB FS D-/D+ to J20 | 2.065 mm | open; tune interactively |
-| AD9609 sample clock CLK-/CLK+ | 0.304 mm | open; first fix the DRC error |
+| STM32 USB FS D-/D+ to J20 | 0.414 mm | manually tuned; verify after DRC fixes |
+| AD9609 sample clock CLK-/CLK+ | 0.304 mm | manually tuned; verify after DRC fixes |
 | Ethernet RX RX-/RX+ to J21 | 0.021 mm | manually tuned; verify after DRC fix |
 | Ethernet TX TX-/TX+ | 0.000 mm | corrected and DRC-verified |
 | MM8108 USB D-/D+ to J17 | 0.675 mm | manually tuned; verify after DRC fix |
@@ -112,8 +163,10 @@ must not be treated as solved merely because the board passes ordinary DRC:
 The IWRL connector is J10 (`USB-C USB2 DEBUG`); the RP2350 connector is J4
 (`USB-C Receptacle USB2`). The STM32 USB connector is J20, and the MM8108
 USB connector is J17. The current edited-board values above supersede the
-older clean-board values in the historical audit below, but they are not
-release values until DRC is clean again.
+older clean-board values in the historical audit below. The basic cleanup was
+limited to zero-pad islands, exact duplicates, and silkscreen; it did not
+intentionally tune these endpoint paths. They are not release values until DRC
+is clean again.
 
 The first-order field-based impedance estimate used the checked-in four-layer
 stackup (1.6 mm nominal, 175 um prepreg to the adjacent reference plane,
