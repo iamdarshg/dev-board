@@ -100,11 +100,14 @@ must not be treated as solved merely because the board passes ordinary DRC:
 
 | Interface | Measured mismatch | Status |
 |---|---:|---|
-| IWRL USB DM/DP to J10 | 7.979 mm | manually changed; review and tune |
-| RP2350 USB D-/D+ to J4 | 5.925 mm | open; tune interactively |
+| IWRL USB DM/DP to J10 | 0.097 mm | manually tuned; verify after DRC fix |
+| RP2350 USB D-/D+ to J4 | 0.967 mm | manually tuned; verify after DRC fix |
 | STM32 USB FS D-/D+ to J20 | 2.065 mm | open; tune interactively |
 | AD9609 sample clock CLK-/CLK+ | 0.304 mm | open; first fix the DRC error |
+| Ethernet RX RX-/RX+ to J21 | 0.021 mm | manually tuned; verify after DRC fix |
 | Ethernet TX TX-/TX+ | 0.000 mm | corrected and DRC-verified |
+| MM8108 USB D-/D+ to J17 | 0.675 mm | manually tuned; verify after DRC fix |
+| AD9609 ADC input | 0.581 mm | open; analog path review |
 
 The IWRL connector is J10 (`USB-C USB2 DEBUG`); the RP2350 connector is J4
 (`USB-C Receptacle USB2`). The STM32 USB connector is J20, and the MM8108
