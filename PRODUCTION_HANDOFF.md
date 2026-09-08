@@ -83,13 +83,16 @@ The exposed 1.0 mm test pads are grouped on the bottom edge at 2.0 mm pitch:
 
 ADC test-branch mismatch is 0.509 mm. These are measurement branches; keep probes and flying leads short.
 
-## Current routing status (2026-09-08)
+## Current routing status (2026-09-08; manual-routing candidate)
 
-The checked-in production board is the board at commit `3a95473`. KiCad 9.0.7
-DRC was rerun after the committed Ethernet TX correction: **0 errors** and
-**0 unconnected items**. The Ethernet TX pair (`/STM32H7/PHY_TXP` and
-`/STM32H7/PHY_TXN`) is now length-matched to **0.000 mm** by a verified
-5.274 mm Top-Layer extension on the shorter leg.
+The board file currently in the working tree contains a manual routing edit
+made in KiCad. It is being committed as a review candidate, not promoted to
+the fabrication release. KiCad 9.0.7 DRC on this edited file reports **1
+error**, **175 warnings**, and **0 unconnected items**. The blocking error is
+an AD9609 `/AD9609/CLK_N` Top-Layer clearance violation at approximately
+(63.4002, 29.6802) mm against the `SOURCE_BACKED_ANALOG_REPAIR_ADC_TOP_GND`
+zone. The previously released board at commit `3a95473` remains the clean
+fabrication baseline.
 
 The following are the remaining measured end-to-end pair mismatches on the
 checked-in board. They are documented for interactive KiCad follow-up; they
@@ -97,14 +100,17 @@ must not be treated as solved merely because the board passes ordinary DRC:
 
 | Interface | Measured mismatch | Status |
 |---|---:|---|
-| IWRL USB DM/DP | 21.981 mm | open; dense corridor, tune interactively |
-| RP2350 USB D-/D+ | 5.925 mm | open; tune interactively |
-| STM32 USB FS D-/D+ | 2.196 mm | open; tune interactively |
-| AD9609 sample clock CLK-/CLK+ | 2.100 mm | open; tune interactively |
+| IWRL USB DM/DP to J10 | 7.979 mm | manually changed; review and tune |
+| RP2350 USB D-/D+ to J4 | 5.925 mm | open; tune interactively |
+| STM32 USB FS D-/D+ to J20 | 2.065 mm | open; tune interactively |
+| AD9609 sample clock CLK-/CLK+ | 0.304 mm | open; first fix the DRC error |
 | Ethernet TX TX-/TX+ | 0.000 mm | corrected and DRC-verified |
 
-Earlier values in the historical audit below predate the committed Ethernet
-correction and should not be used as the current release measurements.
+The IWRL connector is J10 (`USB-C USB2 DEBUG`); the RP2350 connector is J4
+(`USB-C Receptacle USB2`). The STM32 USB connector is J20, and the MM8108
+USB connector is J17. The current edited-board values above supersede the
+older clean-board values in the historical audit below, but they are not
+release values until DRC is clean again.
 
 The first-order field-based impedance estimate used the checked-in four-layer
 stackup (1.6 mm nominal, 175 um prepreg to the adjacent reference plane,
@@ -117,7 +123,7 @@ controlled-impedance confirmation. The short CC1352 RF balanced launches are
 length-matched, but their 50 ohm launch impedance has not been certified by a
 3-D field solver.
 
-## Pair-length audit
+## Historical clean-board pair-length audit
 
 Key routed mismatches:
 
