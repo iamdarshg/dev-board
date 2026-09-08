@@ -8,11 +8,10 @@
 - DRC report: `dev-real-production-drc.rpt`
 - Detailed pair audit: `dev-real-production-length-audit.txt`
 
-The current KiCad 9.0.7 DRC result is **107 violations: 4 errors, 103
-warnings, and 0 unconnected items**. The four error records represent two
-physical via-to-zone conflicts (each reported once for copper clearance and
-once for hole clearance); see the current-routing section for coordinates and
-the remaining manual work.
+The current KiCad 9.0.7 DRC result is **26 warnings, 0 errors, 0 unconnected
+items, and 0 footprint errors** after the 2026-09-09 dangling-copper cleanup
+and full eight-zone refill. The remaining warnings are explicitly classified
+in the current-routing section below.
 
 **Fab outputs are stale as of the L1 change below.** `dev-real-production-fab/`
 (gerbers, drill files, `-positions.csv`, `-netlist.xml`, `-drc.rpt`, `.zip`) and
@@ -86,7 +85,7 @@ The exposed 1.0 mm test pads are grouped on the bottom edge at 2.0 mm pitch:
 
 ADC test-branch mismatch is 0.509 mm. These are measurement branches; keep probes and flying leads short.
 
-## Current routing status (2026-09-08; cleaned manual-routing candidate)
+## Current routing status (2026-09-09; cleaned manual-routing candidate)
 
 The checked-in board contains the latest manual KiCad routing plus a
 conservative basic-DRC cleanup. The cleanup removed **59 zero-pad signal track
@@ -98,52 +97,42 @@ broader cleanup was tested and rejected because it created a genuine
 unconnected item; sensitive and ambiguous one-pad routes therefore remain for
 visual review instead of being deleted automatically.
 
-KiCad 9.0.7 DRC on the resulting board reports **107 violations: 4 errors and
-103 warnings, with 0 unconnected items and 0 footprint errors**. The repeatable
-pre-cleanup control result was 176 violations (4 errors and 172 warnings), so
-this pass removed 69 warnings without increasing the error or unconnected
-counts. This remains a review candidate, not a fabrication release. The
-previously released board at commit `3a95473` remains the clean fabrication
-baseline, and the fabrication outputs listed above have not been regenerated.
+The 2026-09-09 follow-up then iteratively removed every newly exposed dead-end
+chain that passed a fresh connectivity check: **90 additional dangling track
+blocks and 27 additional dangling-via blocks** were removed. Nine more
+redundant members of co-located via pairs were removed directly; combined with
+the dangling-via removal, this cleared **18 of the 20** co-location markers.
+All eight zones were refilled. The refill removed the two former physical
+via-to-zone conflicts (four error records) without creating shorts or
+unconnected items.
 
-### Manual actions still required
+KiCad 9.0.7 DRC on the resulting board reports **26 warnings, 0 errors, 0
+unconnected items, and 0 footprint errors**. The remaining warnings are:
 
-1. **Fix the two real via-to-zone conflicts first.** Each creates both a
-   clearance and a hole-clearance error:
-   - `/MM8108/SDIO_D0_SPI_MISO` through via at **(24.3991, 83.3043) mm** versus
-     the Ground Layer 1 GND zone: copper clearance is 0.0061 mm versus 0.1000
-     mm required; hole clearance is 0.0561 mm versus 0.1200 mm required.
-   - GND through via at **(22.5030, 80.6170) mm** versus the Power Layer 2
-     `PWR_3V3_PLANE`: both reported actual clearances are 0.0000 mm. Move the
-     via or reshape the zone while preserving the via's intended connection.
-2. **Inspect the 39 remaining dangling-track markers in KiCad before deleting
-   anything.** Highest-risk examples are `/IWRL6432BD/XTALM`,
-   `/IWRL6432BD/RF_TX1`, `/IWRL6432BD/RF_TX2`, `/IWRL6432BD/GPIO_2`,
-   `/STM32H7/VREFP`, `/STM32H7/ETH_RXD0`, `/STM32H7/ETH_RXD1`,
-   `/MM8108/ANT`, `/AD9609/DCO`, `/AD9609/D9`, and the IWRL USB VBUS/ID
-   routes. These include one-pad stubs, sensitive launches, and branches that
-   cannot be classified as unused from connectivity alone. The remaining
-   markers also include GND/+3V3/power stubs that should be judged against the
-   intended plane connection.
-3. **Inspect the 20 remaining dangling-via markers.** They include one-pad
-   supply/decoupling transitions and signal transitions on `/Power/VDD`,
-   `/Power/SW`, `/Power/FB`, `/Power/VIN`, `/Power/AGND`, `/Power/EN`,
-   `/IWRL6432BD/RADAR_SRAM_1V2`, `/IWRL6432BD/FT_TXD`,
-   `/IWRL6432BD/QSPI_D2`, `/AD9609/3V3_AFE`, `/THX8136/AR`, `/THX8136/AG`,
-   `/THX8136/AB`, and `/STM32H7/PM3`. Delete only after confirming the
-   transition is not intentional.
-4. **Resolve or obtain fabricator approval for 20 co-located-hole and 11
-   hole-to-hole warnings.** Most are intentional-looking stacked microvia /
-   through-via structures on GND and power nets, but they need confirmation
-   against the selected HDI process. The same-position `/AD9609/DCO` via pair
-   at approximately (90.0, 54.25) mm also needs visual inspection.
-5. **Open and reshape the five copper-sliver DRC markers** (two Top Layer, two
-   Bottom Layer, one Power Layer 2). The text report identifies their layers
-   but does not provide coordinates, so use the interactive DRC marker list.
-6. **Review the eight library-footprint mismatch warnings.** `J7`, `U3`,
-   `RANT1`, and `CANT1` are expected after this local silkscreen cleanup;
-   `NT1`, `U21`, `U14`, and `U15` were pre-existing. These are not footprint
-   errors, but verify their land patterns before fabrication.
+- **One `track_dangling` marker:** `/STM32H7/JTDI` at approximately
+  (21.5420, 40.3517) mm. A test deletion created a real missing connection, so
+  that deletion was reverted and this marker is intentionally accepted.
+- **Two `holes_co_located` markers:** the `/Power/SW` microvia-to-buried-via
+  transitions at (71.5000, 66.0000) mm and (71.5000, 66.2000) mm. Removing a
+  member created a missing connection. A tested stagger-and-bridge alternative
+  cleared co-location but created four `/Power/SW` to `+3V3` shorts after zone
+  refill, so it too was reverted. These are required stacked transitions and
+  need fabricator approval rather than deletion.
+- **Five `copper_sliver` markers:** two Top Layer, two Bottom Layer, and one
+  Power Layer 2. KiCad's machine-readable report supplies no coordinates or
+  attached objects for these markers. A complete eight-zone refill was clean
+  electrically but did not remove the warnings, so they remain accepted for
+  later interactive marker inspection rather than hiding them by lowering DRC
+  severity.
+- **Ten `hole_to_hole` warnings:** remaining HDI drill-spacing/stack geometry
+  that must be accepted by the selected fabricator or manually restacked.
+- **Eight `lib_footprint_mismatch` warnings:** `J7`, `U3`, `RANT1`, and
+  `CANT1` reflect intentional local silkscreen cleanup; `NT1`, `U21`, `U14`,
+  and `U15` were pre-existing. There are no footprint errors.
+
+This remains a review candidate, not a fabrication release. The previously
+released board at commit `3a95473` remains the clean fabrication baseline, and
+the fabrication outputs listed above have not been regenerated.
 
 The following are the remaining measured end-to-end pair mismatches on the
 checked-in board. They are documented for interactive KiCad follow-up; they
