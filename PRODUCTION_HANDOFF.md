@@ -83,6 +83,40 @@ The exposed 1.0 mm test pads are grouped on the bottom edge at 2.0 mm pitch:
 
 ADC test-branch mismatch is 0.509 mm. These are measurement branches; keep probes and flying leads short.
 
+## Current routing status (2026-09-08)
+
+The checked-in production board is the board at commit `3a95473`. KiCad 9.0.7
+DRC was rerun after the committed Ethernet TX correction: **0 errors** and
+**0 unconnected items**. The Ethernet TX pair (`/STM32H7/PHY_TXP` and
+`/STM32H7/PHY_TXN`) is now length-matched to **0.000 mm** by a verified
+5.274 mm Top-Layer extension on the shorter leg.
+
+The following are the remaining measured end-to-end pair mismatches on the
+checked-in board. They are documented for interactive KiCad follow-up; they
+must not be treated as solved merely because the board passes ordinary DRC:
+
+| Interface | Measured mismatch | Status |
+|---|---:|---|
+| IWRL USB DM/DP | 21.981 mm | open; dense corridor, tune interactively |
+| RP2350 USB D-/D+ | 5.925 mm | open; tune interactively |
+| STM32 USB FS D-/D+ | 2.196 mm | open; tune interactively |
+| AD9609 sample clock CLK-/CLK+ | 2.100 mm | open; tune interactively |
+| Ethernet TX TX-/TX+ | 0.000 mm | corrected and DRC-verified |
+
+Earlier values in the historical audit below predate the committed Ethernet
+correction and should not be used as the current release measurements.
+
+The first-order field-based impedance estimate used the checked-in four-layer
+stackup (1.6 mm nominal, 175 um prepreg to the adjacent reference plane,
+FR-4 dielectric approximately 4.4) and the actual routed widths. It estimates
+roughly 65--70 ohm single-ended and 89--96 ohm differential for the common
+0.127--0.300 mm geometries. This is an engineering estimate, not a fab
+acceptance measurement: the fabricator must field-solve the final stackup,
+copper thickness, soldermask, and trace spacing and provide a coupon or
+controlled-impedance confirmation. The short CC1352 RF balanced launches are
+length-matched, but their 50 ohm launch impedance has not been certified by a
+3-D field solver.
+
 ## Pair-length audit
 
 Key routed mismatches:
@@ -100,10 +134,9 @@ Key routed mismatches:
 
 The dense USB routes were not given forced serpentine sections because no collision-free tuning corridor was available. The STM32, RP2350, and FTDI paths are identified as full-speed USB in this design and are retained as routed. Confirm the MM8108 interface speed before fabrication: if it operates at USB high speed, its 7.819 mm residual mismatch should be rerouted against the module's timing requirement.
 
-The Ethernet TX pair's 3.723 mm mismatch is not called out above with a
-verdict: at typical FR-4 propagation velocity that's roughly 25 ps of skew,
-under common 1000BASE-T intra-pair skew budgets (~50 ps) but close enough to
-the boundary to flag for review rather than treat as automatically fine.
+The historical Ethernet TX value in the table above predates the committed
+correction. Use the 0.000 mm value in the current-routing section for the
+checked-in production board.
 
 ## Fabricator instructions
 

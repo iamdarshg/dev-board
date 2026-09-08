@@ -1,7 +1,7 @@
 # dev-board Fabrication Release Notes
 
 Revision: main @ (see SHA256SUMS.csv for exact source hashes)
-Generated: 2026-08-24 (Asia/Calcutta)
+Generated: 2026-09-08 (Asia/Calcutta)
 Generator: KiCad 9.0.7 CLI
 
 ## Contents
@@ -44,6 +44,36 @@ is not documented anywhere in the project. Per explicit user decision this issue
 unresolved. It affects only the AD9609 scope-driver subcircuit (U22 MCP6D11 input bias reference).
 
 No other nets are unresolved. Both PCB variants have identical SCOPE_BIAS connectivity (2 pads each).
+
+## Current routing and signal-integrity status
+
+The checked-in production board is the board at commit `3a95473`. After the
+Ethernet TX correction, KiCad 9.0.7 DRC reports **0 errors** and **0
+unconnected items**. The `/STM32H7/PHY_TXP` and `/STM32H7/PHY_TXN` pair is
+length-matched to **0.000 mm**.
+
+Measured end-to-end mismatches still open for interactive KiCad tuning are:
+
+| Interface | Mismatch |
+|---|---:|
+| IWRL USB DM/DP | 21.981 mm |
+| RP2350 USB D-/D+ | 5.925 mm |
+| STM32 USB FS D-/D+ | 2.196 mm |
+| AD9609 sample clock CLK-/CLK+ | 2.100 mm |
+
+These are not DRC errors. The dense USB/radar corridors need visual review and
+length tuning with serpentine sections only where clearance and return-path
+continuity remain intact. The first-order field-based estimate for the
+checked-in four-layer stackup is approximately 65--70 ohm single-ended and
+89--96 ohm differential for the common routed widths. It is an estimate, not
+a controlled-impedance release: the selected fabricator must field-solve the
+actual laminate/plating/soldermask stackup and confirm the target geometry
+with a coupon or equivalent measurement. The CC1352 RF launches are
+length-matched, but no 3-D field-solver certification has been performed.
+
+The release is therefore electrically DRC-clean and fabrication-packaged,
+with Ethernet TX corrected, but it is not claiming completed impedance
+certification or completion of the remaining manual skew-tuning work.
 
 ## Manufacturing notes
 
