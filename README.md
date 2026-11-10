@@ -1,9 +1,27 @@
-# dev-real — what's left to do
+# dev-real production board
 
-Self-contained project: board + schematics + libraries. Unzip anywhere and open
-`dev-real.kicad_pro` in KiCad 9.
+Self-contained KiCad 9 project: board, schematics, project rules, and referenced
+libraries. Open `dev-real-production.kicad_pro` for the production board; keep the
+project file beside the board so DRC uses the intended rules.
 
-Board is at **0 DRC errors and 0 unconnected items — fully routed.**
+## Current measured status (2026-11-04)
+
+The repaired production board is at **10 DRC warnings, 0 errors, and 0
+unconnected items**. This is not yet fab-ready. The warning breakdown is:
+
+- 1 intentional JTDI dangling-track warning (deletion breaks a real connection)
+- 2 intentional `/Power/SW` stacked microvia/blind-buried warnings requiring JLC HDI confirmation
+- 2 intentional silk-only library mismatch warnings (RANT1/CANT1; shared-library deviations)
+- 5 copper-sliver warnings requiring KiCad PCB Editor marker inspection
+
+The ten hole-to-hole violations were fixed with KiCad-native geometry edits and
+fresh DRC verification. The repaired board and library changes remain working-tree
+state. Detailed evidence is in:
+`../../evidence/dev-board/GEOMETRY_REPAIR_2026-11-02.md`.
+
+A regenerated but not release-approved fabrication package is in:
+`../../evidence/dev-board/fab-2026-11-02/`. Do not promote it to `E:\final order`
+until the slivers and JLC stackup questions are closed.
 
 ---
 
